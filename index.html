@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SV Chemie Dohna — Spielplan</title>
+<style>
+  :root { --gruen: #1b5e20; --gruen-hell: #e8f5e9; --grau: #666; --rot: #b71c1c; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; color: #222; background: #fafafa; }
+  header { background: var(--gruen); color: #fff; padding: 16px 20px; }
+  header h1 { margin: 0; font-size: 1.3rem; }
+  header .stand { font-size: .85rem; opacity: .9; margin-top: 4px; }
+  .legende { padding: 10px 20px; font-size: .8rem; color: var(--grau); background: #fff; border-bottom: 1px solid #ddd; }
+  .badge { display: inline-block; font-size: .68rem; font-weight: 700; padding: 1px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+  .badge-heim { background: var(--gruen); color: #fff; }
+  .badge-aus { background: var(--rot); color: #fff; }
+  .badge-tu { background: #555; color: #fff; }
+  main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  section.weekend { background: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
+  section.weekend.current { border-color: var(--gruen); border-width: 2px; }
+  details summary { cursor: pointer; padding: 12px 16px; font-weight: 700; background: #f0f0f0; list-style: none; }
+  details summary::before { content: "▸ "; }
+  details[open] summary::before { content: "▾ "; }
+  section.weekend.current details summary { background: var(--gruen-hell); color: var(--gruen); }
+  section.past { opacity: .55; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  th, td { text-align: left; padding: 7px 10px; border-top: 1px solid #eee; }
+  th { background: #fafafa; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; color: var(--grau); border-top: none; }
+  tr.heimspiel td { background: var(--gruen-hell); }
+  tr.heimspiel .paarung { font-weight: 700; }
+  tr.abgesagt td { color: var(--grau); }
+  tr.abgesagt .paarung { text-decoration: line-through; }
+  td.ergebnis { font-weight: 700; white-space: nowrap; }
+  .fehler { padding: 40px 20px; text-align: center; color: var(--rot); }
+  @media (max-width: 640px) {
+    th:nth-child(6), td:nth-child(6), th:nth-child(7), td:nth-child(7) { display: none; }
+  }
+  @media print {
+    body { background: #fff; font-size: 10pt; }
+    header { background: #fff; color: #000; border-bottom: 2px solid #000; }
+    .no-print { display: none !important; }
+    section.weekend, section.past { opacity: 1; border: 1px solid #000; border-radius: 0; page-break-inside: avoid; margin-bottom: 10px; }
+    details summary::before { content: ""; }
+    tr.heimspiel td { background: #fff; border-left: 4px solid #000; }
+    .badge-heim { border: 1px solid #000; background: #fff; color: #000; }
+    .badge-aus { border: 1px solid var(--rot); background: #fff; color: var(--rot); }
+    .badge-tu { border: 1px solid #555; background: #fff; color: #555; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>SV Chemie Dohna — Spielplan</h1>
+  <div class="stand" id="stand">lädt…</div>
+</header>
+<div class="legende no-print">
+  Heimspiele sind grün markiert <span class="badge badge-heim">HEIM</span> ·
+  <span class="badge badge-aus">abgesagt</span> ·
+  <span class="badge badge-tu">TU</span> Turnier/Kinderfestival ·
+  Tipp: Drucken/PDF über den Browser (Strg+P), alte Wochenenden werden dabei automatisch aufgeklappt.
+</div>
+<main id="inhalt"></main>
+<script>
+// ==LOGIK-START==
+const VEREIN = "SV Chemie Dohna";
+
+function weekendKey(iso) {
+  // Liefert den Freitag (YYYY-MM-DD) des Wochenendes, zu dem das Datum gehört.
+  // Fr/SA/So -> eigenes Wochenende; Mo-Do -> vorheriges Wochenende.
+  const d = new Date(iso + "T12:00:00");
+  const dow = d.getDay(); // 0=So, 5=Fr, 6=Sa
+  const off = dow === 5 ? 0 : dow === 6 ? -1 : dow === 0 ? -2 : -(dow + 2);
+  const fr = new Date(d);
+  fr.setDate(d.getDate() + off);
+  return fr.toISOString().slice(0, 10);
+}
+
+function sundayOf(key) {
+  const d = new Date(key + "T12:00:00");
+  d.setDate(d.getDate() + 2);
+  return d.toISOString().slice(0, 10);
+}
+
+function fmtDate(iso) {
+  const [y, m, t] = iso.split("-");
+  return `${t}.${m}.${y}`;
+}
+
+function isHeim(spiel) {
+  return (spiel.heim || "").startsWith(VEREIN);
+}
+
+function gruppiere(spiele, heuteISO) {
+  const gruppen = new Map();
+  for (const s of spiele) {
+    if (!s.datumISO) continue;
+    const key = weekendKey(s.datumISO);
+    if (!gruppen.has(key)) gruppen.set(key, []);
+    gruppen.get(key).push(s);
+  }
+  return [...gruppen.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([key, list]) => ({
+      key,
+      sonntag: sundayOf(key),
+      vergangen: sundayOf(key) < heuteISO,
+      spiele: list.sort((a, b) => (a.datumISO + a.uhrzeit).localeCompare(b.datumISO + b.uhrzeit))
+    }));
+}
+// ==LOGIK-END==
+
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function zeile(s) {
+  const abgesagt = s.status === "cancelled";
+  const klassen = ["spiel"];
+  if (isHeim(s)) klassen.push("heimspiel");
+  if (abgesagt) klassen.push("abgesagt");
+  const badges = [];
+  if (isHeim(s)) badges.push('<span class="badge badge-heim">HEIM</span>');
+  if (abgesagt) badges.push(`<span class="badge badge-aus">${esc(s.hinweis || "abgesagt")}</span>`);
+  if (s.spielart === "TU") badges.push('<span class="badge badge-tu">TU</span>');
+  const erg = !s.ergebnis || s.ergebnis === "-:-" ? "–" : esc(s.ergebnis);
+  return `<tr class="${klassen.join(" ")}">
+    <td>${esc(s.wochentag)} ${fmtDate(s.datumISO).slice(0, 6)}</td>
+    <td>${esc(s.uhrzeit)}</td>
+    <td>${esc(s.altersklasse)}</td>
+    <td class="paarung">${esc(s.heim)} vs. ${esc(s.gast)}${badges.join("")}</td>
+    <td class="ergebnis">${erg}</td>
+    <td>${esc(s.spielort)}</td>
+    <td>${esc(s.wettbewerb)}</td>
+  </tr>`;
+}
+
+function render(data) {
+  document.getElementById("stand").textContent = "Stand: " + (data.stand || "unbekannt");
+  const heute = new Date().toLocaleDateString("sv-SE"); // YYYY-MM-DD lokal
+  const gruppen = gruppiere(data.spiele || [], heute);
+  const naechste = gruppen.find(g => !g.vergangen);
+  const main = document.getElementById("inhalt");
+  if (gruppen.length === 0) {
+    main.innerHTML = '<div class="fehler">Keine Spiele gefunden.</div>';
+    return;
+  }
+  main.innerHTML = gruppen.map(g => {
+    const offen = naechste && g.key === naechste.key ? " open" : "";
+    const cls = "weekend" + (g.vergangen ? " past" : "") + (offen ? " current" : "");
+    return `<section class="${cls}">
+      <details${offen}>
+        <summary>Fr ${fmtDate(g.key)} – So ${fmtDate(g.sonntag)} (${g.spiele.length} Spiele)</summary>
+        <table>
+          <thead><tr><th>Tag</th><th>Zeit</th><th>Klasse</th><th>Begegnung</th><th>Erg.</th><th>Spielort</th><th>Wettbewerb</th></tr></thead>
+          <tbody>${g.spiele.map(zeile).join("")}</tbody>
+        </table>
+      </details>
+    </section>`;
+  }).join("");
+}
+
+fetch("spieldaten.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(render)
+  .catch(e => {
+    document.getElementById("stand").textContent = "";
+    document.getElementById("inhalt").innerHTML = '<div class="fehler">spieldaten.json konnte nicht geladen werden (' + esc(e.message) + ").</div>";
+  });
+
+// Beim Drucken alle Wochenenden aufklappen
+window.addEventListener("beforeprint", () => document.querySelectorAll("details").forEach(d => d.open = true));
+</script>
+</body>
+</html>
