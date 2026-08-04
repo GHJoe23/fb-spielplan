@@ -257,12 +257,13 @@ function badgesFuer(s) {
   const badges = [];
   if (isHeim(s)) badges.push('<span class="badge badge-heim">HEIM</span>');
   if (s.status === "cancelled") badges.push(`<span class="badge badge-aus">${esc(s.hinweis || "abgesagt")}</span>`);
+  if (s.status === "entfernt") badges.push('<span class="badge badge-aus">entfernt</span>');
   if (s.spielart === "TU") badges.push('<span class="badge badge-tu">TU</span>');
   return badges.join("");
 }
 
 function zeile(s, mitVergangenheit) {
-  const abgesagt = s.status === "cancelled";
+  const abgesagt = s.status === "cancelled" || s.status === "entfernt";
   const klassen = ["spiel"];
   if (isHeim(s)) klassen.push("heimspiel");
   if (abgesagt) klassen.push("abgesagt");
@@ -280,7 +281,7 @@ function zeile(s, mitVergangenheit) {
 }
 
 function kartenZeile(s) {
-  const abg = s.status === "cancelled";
+  const abg = s.status === "cancelled" || s.status === "entfernt";
   const heim = isHeim(s);
   const erg = ergAusUnsererSicht(s);
   const teile = [
