@@ -21,6 +21,8 @@ assert.equal(isHeim({ heim: "SV Chemie Dohna" }), true);
 assert.equal(isHeim({ heim: "SV Chemie Dohna 2." }), true);
 assert.equal(isHeim({ heim: "SV Chemie Dohna - Kinderfestival" }), true);
 assert.equal(isHeim({ heim: "Radeberger SV" }), false);
+// isHeim: SpG-Heimspiel (Vereinsname steht mitten im SpG-Namen, z.B. A-Junioren)
+assert.equal(isHeim({ heim: "SpG LSV Gorknitz 61 / SV Chemie Dohna 9er NWM" }), true);
 // gruppiere: Sortierung + Vergangenheitsflag
 const g = gruppiere([
   { datumISO: "2026-08-23", uhrzeit: "15:00", heim: "x" },
@@ -56,4 +58,38 @@ const fHeim = filterSpiele(deduped, new Set(), true);
 assert.equal(fHeim.length, 2); // beide beginnen mit "SV Chemie Dohna"
 const fAuswaerts = filterSpiele([...deduped, { datumISO: "2026-08-29", uhrzeit: "15:00", altersklasse: "Herren", heim: "Radeberger SV", gast: "SV Chemie Dohna" }], new Set(), true);
 assert.equal(fAuswaerts.length, 2); // Auswärtsspiel rausgefiltert
+
+// teamCode: Mannschaftskürzel aus Altersklasse + Teamname
+assert.equal(teamCode({ altersklasse: "Herren", heim: "SV Chemie Dohna", gast: "x" }), "H1");
+assert.equal(teamCode({ altersklasse: "Herren", heim: "SV Chemie Dohna 2.", gast: "x" }), "H2");
+assert.equal(teamCode({ altersklasse: "Herren", heim: "Radeberger SV", gast: "SV Chemie Dohna 2." }), "H2"); // Auswärts: wir = Gast
+assert.equal(teamCode({ altersklasse: "A-Junioren", heim: "SpG LSV Gorknitz 61 / SV Chemie Dohna 9er NWM", gast: "x" }), "A");
+assert.equal(teamCode({ altersklasse: "E-Junioren", heim: "Heidenauer SV - Kinderfestival", gast: "SV Chemie Dohna U10/U11 5x5" }), "E5"); // Festival: wir = Gast
+assert.equal(teamCode({ altersklasse: "E-Junioren", heim: "SV Chemie Dohna - Kinderfestival", gast: "SV Chemie Dohna U10/U11 6x6" }), "E6");
+assert.equal(teamCode({ altersklasse: "F-Junioren", heim: "SV Chemie Dohna - Kinderfestival", gast: "SV Chemie Dohna 2. U8/U9" }), "F2");
+assert.equal(teamCode({ altersklasse: "F-Junioren", heim: "SV Chemie Dohna - Kinderfestival", gast: "SV Chemie Dohna 1. U8/U9" }), "F1");
+assert.equal(teamCode({ altersklasse: "G-Junioren", heim: "SG Kesselsdorf - Kinderfestival", gast: "SV Chemie Dohna U7" }), "G");
+
+// venueCode: Ortskürzel bei Heimspielen
+assert.equal(venueCode({ heim: "SV Chemie Dohna", spielort: "Stadion Dohna Rasenplatz" }), "R");
+assert.equal(venueCode({ heim: "SV Chemie Dohna 2.", spielort: "Stadion Dohna Kunstrasen" }), "KR");
+assert.equal(venueCode({ heim: "SpG LSV Gorknitz 61 / SV Chemie Dohna 9er NWM", spielort: "Sportplatz Gorknitz" }), "GK");
+assert.equal(venueCode({ heim: "SV Chemie Dohna", spielort: "" }), "R"); // Heimspiel ohne Ort = Rasen
+assert.equal(venueCode({ heim: "Radeberger SV", spielort: "Stadion Schillerstr. Rasen" }), "@"); // Auswärts
+
+// compCode: Wettbewerbskürzel
+assert.equal(compCode({ spielart: "PO" }), "POK");
+assert.equal(compCode({ spielart: "FS" }), "FS");
+assert.equal(compCode({ spielart: "TU" }), "KF");
+assert.equal(compCode({ spielart: "ME" }), "");
+assert.equal(compCode({ spielart: "" }), "");
+
+// ergAusUnsererSicht: bei Auswärts drehen
+assert.equal(ergAusUnsererSicht({ heim: "SV Chemie Dohna", ergebnis: "3:1" }), "3:1");
+assert.equal(ergAusUnsererSicht({ heim: "SC Freital II", ergebnis: "8:1" }), "1:8"); // Auswärts-Niederlage aus Chemie-Sicht
+assert.equal(ergAusUnsererSicht({ heim: "SV Chemie Dohna", ergebnis: "-:-" }), ""); // kein Ergebnis -> leer
+
+// gegner: die Fremdseite
+assert.equal(gegner({ heim: "SV Chemie Dohna", gast: "SV Bannewitz" }), "SV Bannewitz");
+assert.equal(gegner({ heim: "Radeberger SV", gast: "SV Chemie Dohna" }), "Radeberger SV");
 console.log("Alle Logik-Tests bestanden.");

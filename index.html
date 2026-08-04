@@ -26,7 +26,9 @@
   .view-switch button { border: 1px solid var(--gruen); background: #fff; color: var(--gruen); padding: 3px 12px; font-size: .8rem; cursor: pointer; }
   .view-switch button:first-child { border-radius: 6px 0 0 6px; }
   .view-switch button:last-child { border-radius: 0 6px 6px 0; border-left: none; }
+  .view-switch button:not(:first-child):not(:last-child) { border-left: none; }
   .view-switch button.active { background: var(--gruen); color: #fff; }
+  .print-btn { border: 1px solid #bbb; background: #f5f5f5; border-radius: 6px; padding: 3px 12px; font-size: .8rem; cursor: pointer; }
   main { max-width: 1100px; margin: 0 auto; padding: 16px; }
   section.weekend { background: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
   section.weekend.current { border-color: var(--gruen); border-width: 2px; }
@@ -46,6 +48,27 @@
   td.ergebnis { font-weight: 700; white-space: nowrap; }
   .kompakt-box { background: #fff; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
   .fehler { padding: 40px 20px; text-align: center; color: var(--rot); }
+  /* --- Karten-Ansicht --- */
+  .karten { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px) { .karten { grid-template-columns: 1fr; } }
+  .karte { background: #fff; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+  .karte.current { border-color: var(--gruen); border-width: 2px; }
+  .karte.past { opacity: .55; }
+  .karte-head { padding: 8px 12px; font-weight: 700; background: #f0f0f0; font-size: .9rem; }
+  .karte.current .karte-head { background: var(--gruen-hell); color: var(--gruen); }
+  .karte-cols { display: grid; grid-template-columns: 1fr 1fr; }
+  .karte-cols .kol { padding: 8px 10px; font-size: .8rem; }
+  .karte-cols .kol:first-child { border-right: 1px solid #eee; }
+  .kol h5 { margin: 6px 0 4px; font-size: .72rem; text-transform: uppercase; letter-spacing: .03em; color: var(--grau); }
+  .kol h5:first-child { margin-top: 0; }
+  .zeile { padding: 2px 4px; border-radius: 4px; line-height: 1.45; }
+  .zeile.h { background: var(--gruen-hell); font-weight: 600; }
+  .zeile.abg { text-decoration: line-through; color: var(--grau); }
+  .zeile .code { display: inline-block; min-width: 2.1em; font-weight: 700; color: var(--gruen); }
+  .zeile .comp { color: var(--grau); font-size: .72rem; font-weight: 700; }
+  .zeile .ort { color: var(--gruen); font-weight: 700; }
+  .zeile .ort.aus { color: var(--rot); }
+  .zeile .erg { font-weight: 700; }
   @media (max-width: 640px) {
     th:nth-child(6), td:nth-child(6), th:nth-child(7), td:nth-child(7) { display: none; }
   }
@@ -55,8 +78,12 @@
     header img { background: none; padding: 0; }
     .no-print { display: none !important; }
     section.weekend, section.past, .kompakt-box { opacity: 1; border: 1px solid #000; border-radius: 0; page-break-inside: avoid; margin-bottom: 10px; }
+    .karten { gap: 8px; }
+    .karte, .karte.past { opacity: 1; border: 1px solid #000; border-radius: 0; page-break-inside: avoid; }
+    .karte.current { border-width: 1px; }
     details summary::before { content: ""; }
     tr.heimspiel td { background: #fff; border-left: 4px solid #000; }
+    .zeile.h { background: #fff; border-left: 3px solid #000; }
     .badge-heim { border: 1px solid #000; background: #fff; color: #000; }
     .badge-aus { border: 1px solid var(--rot); background: #fff; color: var(--rot); }
     .badge-tu { border: 1px solid #555; background: #fff; color: #555; }
@@ -79,16 +106,15 @@
   <div class="filter-row">
     <label><input type="checkbox" id="f-heim"> Nur Heimspiele</label>
     <label><input type="checkbox" id="f-expand"> Beim Druck alles aufklappen</label>
+    <button class="print-btn" id="btn-print" type="button">🖨️ Drucken / PDF</button>
     <span class="view-switch">
-      <button id="v-wochen" class="active" type="button">Wochenenden</button><button id="v-kompakt" type="button">Kompakt</button>
+      <button id="v-wochen" class="active" type="button">Wochenenden</button><button id="v-karten" type="button">Karten</button><button id="v-liste" type="button">Liste</button>
     </span>
   </div>
 </div>
-<div class="legende no-print">
-  Heimspiele sind grün markiert <span class="badge badge-heim">HEIM</span> ·
-  <span class="badge badge-aus">abgesagt</span> ·
-  <span class="badge badge-tu">TU</span> Turnier/Kinderfestival ·
-  Kompakt = alle Spiele als eine Tabelle (z.B. mit „Nur Heimspiele" für Platz- und Kabinenplanung).
+<div class="legende no-print" id="legende">
+  Heimspiele grün <span class="badge badge-heim">HEIM</span> · <span class="badge badge-aus">abgesagt</span> · <span class="badge badge-tu">TU</span> Turnier/Kinderfestival
+  · Karten-Kürzel: H1/H2 Herren, A, C, D, E5/E6, F1/F2, G · Orte: R = Rasen Dohna, KR = Kunstrasen Dohna, GK = Gorknitz, @ = Auswärts · Wettbewerbe: POK, FS, KF
 </div>
 <main id="inhalt"></main>
 <script>
@@ -118,7 +144,9 @@ function fmtDate(iso) {
 }
 
 function isHeim(spiel) {
-  return (spiel.heim || "").startsWith(VEREIN);
+  // "Chemie Dohna" irgendwo im Heim-Namen: deckt "SV Chemie Dohna 2.",
+  // "- Kinderfestival" und SpG-Namen wie "SpG LSV Gorknitz 61 / SV Chemie Dohna 9er NWM" ab.
+  return (spiel.heim || "").includes("Chemie Dohna");
 }
 
 function fuellGrad(s) {
@@ -150,6 +178,44 @@ function filterSpiele(spiele, klassen, nurHeim) {
     (klassen.size === 0 || klassen.has(s.altersklasse)) &&
     (!nurHeim || isHeim(s))
   );
+}
+
+function teamCode(s) {
+  // Kürzel unserer Mannschaft. Bei Kinderfestivals steht unser Team im Gast-Feld.
+  const wir = (s.heim || "").includes("- Kinderfestival") ? (s.gast || "") : ((s.heim || "").includes("Chemie Dohna") ? s.heim : s.gast);
+  const rest = (wir || "").replace(/SV Chemie Dohna\s*/i, "");
+  if (s.altersklasse === "Herren") return /2\./.test(rest) ? "H2" : "H1";
+  if (s.altersklasse === "A-Junioren") return "A";
+  if (s.altersklasse === "C-Junioren") return "C";
+  if (s.altersklasse === "D-Junioren") return "D";
+  if (s.altersklasse === "E-Junioren") return /6x6/.test(rest) ? "E6" : "E5";
+  if (s.altersklasse === "F-Junioren") return /2\./.test(rest) ? "F2" : "F1";
+  if (s.altersklasse === "G-Junioren") return "G";
+  return s.altersklasse || "?";
+}
+
+function venueCode(s) {
+  // Ortskürzel bei Heimspielen: R = Rasen Dohna, KR = Kunstrasen Dohna, GK = Gorknitz
+  if (!isHeim(s)) return "@";
+  const o = (s.spielort || "").toLowerCase();
+  if (o.includes("gorknitz")) return "GK";
+  if (o.includes("kunstrasen")) return "KR";
+  return "R";
+}
+
+function compCode(s) {
+  return { PO: "POK", FS: "FS", TU: "KF" }[s.spielart] || "";
+}
+
+function ergAusUnsererSicht(s) {
+  // Ergebnis liegt aus Heim-Sicht vor; aus Chemie-Sicht drehen, wenn Auswärts.
+  const m = (s.ergebnis || "").match(/(\d+)\s*:\s*(\d+)/);
+  if (!m) return "";
+  return isHeim(s) ? `${m[1]}:${m[2]}` : `${m[2]}:${m[1]}`;
+}
+
+function gegner(s) {
+  return isHeim(s) ? (s.gast || "") : (s.heim || "");
 }
 
 function gruppiere(spiele, heuteISO) {
@@ -213,6 +279,49 @@ function zeile(s, mitVergangenheit) {
   </tr>`;
 }
 
+function kartenZeile(s) {
+  const abg = s.status === "cancelled";
+  const heim = isHeim(s);
+  const erg = ergAusUnsererSicht(s);
+  const teile = [
+    esc(s.uhrzeit || "–"),
+    `<span class="code">${esc(teamCode(s))}</span>`,
+    compCode(s) ? `<span class="comp">${esc(compCode(s))}</span>` : "",
+    heim ? `<span class="ort">${esc(venueCode(s))}</span>` : `<span class="ort aus">@</span>`,
+    `<span class="geg">${esc(gegner(s))}</span>`,
+    erg ? `<span class="erg">${erg}</span>` : ""
+  ].filter(Boolean);
+  return `<div class="zeile${heim ? " h" : ""}${abg ? " abg" : ""}">${teile.join(" ")}</div>`;
+}
+
+function renderKarten(spiele) {
+  const gruppen = gruppiere(spiele, HEUTE);
+  const naechste = gruppen.find(g => !g.vergangen);
+  if (gruppen.length === 0) return '<div class="fehler">Keine Spiele im aktuellen Filter.</div>';
+  const karten = gruppen.map(g => {
+    const cls = "karte" + (g.vergangen ? " past" : "") + (naechste && g.key === naechste.key ? " current" : "");
+    // Linke Spalte: Fr + Sa (+ unter der Woche hineingerutschte), rechte Spalte: So
+    const sonntag = g.spiele.filter(s => s.datumISO === g.sonntag);
+    const rest = g.spiele.filter(s => s.datumISO !== g.sonntag);
+    const nachTagen = (list) => {
+      const tage = [...new Set(list.map(s => s.datumISO))].sort();
+      return tage.map(t => {
+        const tagSpiele = list.filter(s => s.datumISO === t);
+        const wt = tagSpiele[0].wochentag || "";
+        return `<h5>${esc(wt)} ${fmtDate(t).slice(0, 6)}</h5>` + tagSpiele.map(kartenZeile).join("");
+      }).join("");
+    };
+    return `<div class="${cls}">
+      <div class="karte-head">Fr ${fmtDate(g.key).slice(0, 6)} – So ${fmtDate(g.sonntag).slice(0, 6)} · ${g.spiele.length} ${g.spiele.length === 1 ? "Spiel" : "Spiele"}</div>
+      <div class="karte-cols">
+        <div class="kol">${nachTagen(rest) || '<div class="zeile" style="color:#999">–</div>'}</div>
+        <div class="kol">${nachTagen(sonntag) || '<div class="zeile" style="color:#999">–</div>'}</div>
+      </div>
+    </div>`;
+  }).join("");
+  return `<div class="karten">${karten}</div>`;
+}
+
 function renderWochenenden(spiele) {
   const gruppen = gruppiere(spiele, HEUTE);
   const naechste = gruppen.find(g => !g.vergangen);
@@ -244,10 +353,14 @@ function renderKompakt(spiele) {
 
 function render() {
   const gefiltert = filterSpiele(ALLE, new Set(state.klassen), state.nurHeim);
-  document.getElementById("inhalt").innerHTML =
-    state.view === "kompakt" ? renderKompakt(gefiltert) : renderWochenenden(gefiltert);
-  document.getElementById("v-wochen").classList.toggle("active", state.view === "wochen");
-  document.getElementById("v-kompakt").classList.toggle("active", state.view === "kompakt");
+  const inhalt = document.getElementById("inhalt");
+  inhalt.innerHTML =
+    state.view === "karten" ? renderKarten(gefiltert) :
+    state.view === "liste" ? renderKompakt(gefiltert) :
+    renderWochenenden(gefiltert);
+  for (const v of ["wochen", "karten", "liste"]) {
+    document.getElementById("v-" + v).classList.toggle("active", state.view === v);
+  }
 }
 
 function renderChips() {
@@ -275,7 +388,9 @@ document.getElementById("f-expand").checked = state.expand;
 document.getElementById("f-heim").addEventListener("change", e => { state.nurHeim = e.target.checked; saveState(); render(); });
 document.getElementById("f-expand").addEventListener("change", e => { state.expand = e.target.checked; saveState(); });
 document.getElementById("v-wochen").addEventListener("click", () => { state.view = "wochen"; saveState(); render(); });
-document.getElementById("v-kompakt").addEventListener("click", () => { state.view = "kompakt"; saveState(); render(); });
+document.getElementById("v-karten").addEventListener("click", () => { state.view = "karten"; saveState(); render(); });
+document.getElementById("v-liste").addEventListener("click", () => { state.view = "liste"; saveState(); render(); });
+document.getElementById("btn-print").addEventListener("click", () => window.print());
 
 // Beim Drucken nur aufklappen, wenn es der Nutzer aktiviert hat
 window.addEventListener("beforeprint", () => {
