@@ -34,4 +34,26 @@ assert.equal(g[1].spiele[0].datumISO, "2026-08-22"); // Sortierung im Block
 assert.equal(g[0].vergangen, false); // So 16.08.2026 > heute (02.08.)
 assert.equal(g[1].vergangen, false);
 assert.equal(gruppiere([{ datumISO: "2026-07-25", uhrzeit: "14:30", heim: "x" }], "2026-08-02")[0].vergangen, true); // So 26.07. < heute
+
+// dedupe: Widget- und Druckansicht-Zeile derselben Begegnung verschmilzt, die reichere gewinnt
+const dupWidget = { datumISO: "2026-08-22", uhrzeit: "09:00", altersklasse: "F-Junioren", heim: "SV Chemie Dohna - Kinderfestival", gast: "SV Chemie Dohna 1. U8/U9", ergebnis: "-:-", status: "scheduled", hinweis: "", spielort: "", wettbewerb: "01 - 22.08 - SV Chemie Dohna", spielart: "" };
+const dupDruck  = { datumISO: "2026-08-22", uhrzeit: "09:00", altersklasse: "F-Junioren", heim: "SV Chemie Dohna - Kinderfestival", gast: "SV Chemie Dohna 1. U8/U9", ergebnis: "-:-", status: "scheduled", hinweis: "", spielort: "Stadion Dohna Rasenplatz", wettbewerb: "Vereinsturnier", spielart: "TU" };
+const deduped = dedupe([dupWidget, dupDruck, { datumISO: "2026-08-22", uhrzeit: "11:00", altersklasse: "C-Junioren", heim: "SV Chemie Dohna", gast: "SpG Dorfhain / Pretzschendorf" }]);
+assert.equal(deduped.length, 2); // 3 Zeilen -> 2 (Duplikat verschmolzen)
+assert.equal(deduped[0].spielort, "Stadion Dohna Rasenplatz"); // reichere Zeile (Druckansicht) gewinnt
+assert.equal(deduped[0].spielart, "TU");
+assert.equal(deduped[1].altersklasse, "C-Junioren"); // unbeteiligte Zeile bleibt
+// dedupe: gleiche Kennung-Duplikate aus derselben Quelle bleiben bei unterschiedlichen Teams getrennt
+assert.equal(dedupe([dupDruck, { ...dupDruck, gast: "SV Chemie Dohna 2. U8/U9" }]).length, 2);
+
+// filterSpiele: Klassen-Filter + Nur-Heim
+const fAlle = filterSpiele(deduped, new Set(), false);
+assert.equal(fAlle.length, 2); // leeres Set = alle
+const fNurF = filterSpiele(deduped, new Set(["F-Junioren"]), false);
+assert.equal(fNurF.length, 1);
+assert.equal(fNurF[0].altersklasse, "F-Junioren");
+const fHeim = filterSpiele(deduped, new Set(), true);
+assert.equal(fHeim.length, 2); // beide beginnen mit "SV Chemie Dohna"
+const fAuswaerts = filterSpiele([...deduped, { datumISO: "2026-08-29", uhrzeit: "15:00", altersklasse: "Herren", heim: "Radeberger SV", gast: "SV Chemie Dohna" }], new Set(), true);
+assert.equal(fAuswaerts.length, 2); // Auswärtsspiel rausgefiltert
 console.log("Alle Logik-Tests bestanden.");

@@ -8,14 +8,25 @@
   :root { --gruen: #1b5e20; --gruen-hell: #e8f5e9; --grau: #666; --rot: #b71c1c; }
   * { box-sizing: border-box; }
   body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; color: #222; background: #fafafa; }
-  header { background: var(--gruen); color: #fff; padding: 16px 20px; }
+  header { background: var(--gruen); color: #fff; padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  header img { height: 52px; width: 52px; object-fit: contain; background: #fff; border-radius: 50%; padding: 3px; }
   header h1 { margin: 0; font-size: 1.3rem; }
   header .stand { font-size: .85rem; opacity: .9; margin-top: 4px; }
-  .legende { padding: 10px 20px; font-size: .8rem; color: var(--grau); background: #fff; border-bottom: 1px solid #ddd; }
+  .legende { padding: 8px 20px; font-size: .8rem; color: var(--grau); background: #fff; border-bottom: 1px solid #ddd; }
   .badge { display: inline-block; font-size: .68rem; font-weight: 700; padding: 1px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
   .badge-heim { background: var(--gruen); color: #fff; }
   .badge-aus { background: var(--rot); color: #fff; }
   .badge-tu { background: #555; color: #fff; }
+  .filterbar { background: #fff; border-bottom: 1px solid #ddd; padding: 10px 20px; font-size: .85rem; }
+  .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 4px 0; }
+  .filter-label { font-weight: 700; color: var(--grau); }
+  .chip { border: 1px solid #bbb; background: #f5f5f5; border-radius: 14px; padding: 2px 10px; font-size: .8rem; cursor: pointer; }
+  .chip.active { background: var(--gruen); border-color: var(--gruen); color: #fff; }
+  .view-switch { margin-left: auto; }
+  .view-switch button { border: 1px solid var(--gruen); background: #fff; color: var(--gruen); padding: 3px 12px; font-size: .8rem; cursor: pointer; }
+  .view-switch button:first-child { border-radius: 6px 0 0 6px; }
+  .view-switch button:last-child { border-radius: 0 6px 6px 0; border-left: none; }
+  .view-switch button.active { background: var(--gruen); color: #fff; }
   main { max-width: 1100px; margin: 0 auto; padding: 16px; }
   section.weekend { background: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
   section.weekend.current { border-color: var(--gruen); border-width: 2px; }
@@ -31,7 +42,9 @@
   tr.heimspiel .paarung { font-weight: 700; }
   tr.abgesagt td { color: var(--grau); }
   tr.abgesagt .paarung { text-decoration: line-through; }
+  tr.vergangen td { color: #999; }
   td.ergebnis { font-weight: 700; white-space: nowrap; }
+  .kompakt-box { background: #fff; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
   .fehler { padding: 40px 20px; text-align: center; color: var(--rot); }
   @media (max-width: 640px) {
     th:nth-child(6), td:nth-child(6), th:nth-child(7), td:nth-child(7) { display: none; }
@@ -39,8 +52,9 @@
   @media print {
     body { background: #fff; font-size: 10pt; }
     header { background: #fff; color: #000; border-bottom: 2px solid #000; }
+    header img { background: none; padding: 0; }
     .no-print { display: none !important; }
-    section.weekend, section.past { opacity: 1; border: 1px solid #000; border-radius: 0; page-break-inside: avoid; margin-bottom: 10px; }
+    section.weekend, section.past, .kompakt-box { opacity: 1; border: 1px solid #000; border-radius: 0; page-break-inside: avoid; margin-bottom: 10px; }
     details summary::before { content: ""; }
     tr.heimspiel td { background: #fff; border-left: 4px solid #000; }
     .badge-heim { border: 1px solid #000; background: #fff; color: #000; }
@@ -51,14 +65,30 @@
 </head>
 <body>
 <header>
-  <h1>SV Chemie Dohna — Spielplan</h1>
-  <div class="stand" id="stand">lädt…</div>
+  <img src="logo-chemie-dohna.png" alt="Vereinslogo SV Chemie Dohna">
+  <div>
+    <h1>SV Chemie Dohna — Spielplan</h1>
+    <div class="stand" id="stand">lädt…</div>
+  </div>
 </header>
+<div class="filterbar no-print" id="filterbar">
+  <div class="filter-row">
+    <span class="filter-label">Mannschaft:</span>
+    <span id="klassen-chips"></span>
+  </div>
+  <div class="filter-row">
+    <label><input type="checkbox" id="f-heim"> Nur Heimspiele</label>
+    <label><input type="checkbox" id="f-expand"> Beim Druck alles aufklappen</label>
+    <span class="view-switch">
+      <button id="v-wochen" class="active" type="button">Wochenenden</button><button id="v-kompakt" type="button">Kompakt</button>
+    </span>
+  </div>
+</div>
 <div class="legende no-print">
   Heimspiele sind grün markiert <span class="badge badge-heim">HEIM</span> ·
   <span class="badge badge-aus">abgesagt</span> ·
   <span class="badge badge-tu">TU</span> Turnier/Kinderfestival ·
-  Tipp: Drucken/PDF über den Browser (Strg+P), alte Wochenenden werden dabei automatisch aufgeklappt.
+  Kompakt = alle Spiele als eine Tabelle (z.B. mit „Nur Heimspiele" für Platz- und Kabinenplanung).
 </div>
 <main id="inhalt"></main>
 <script>
@@ -91,6 +121,37 @@ function isHeim(spiel) {
   return (spiel.heim || "").startsWith(VEREIN);
 }
 
+function fuellGrad(s) {
+  // Wie informationsreich ist eine Zeile? (für Dedupe: die reichere gewinnt)
+  let n = 0;
+  if (s.spielort) n++;
+  if (s.wettbewerb) n++;
+  if (s.spielart) n++;
+  if (s.ergebnis && s.ergebnis !== "-:-") n++;
+  if (s.hinweis) n++;
+  return n;
+}
+
+function dedupe(spiele) {
+  // Gleiche Begegnung kann aus Widget UND Druckansicht mit verschiedenen
+  // Kennungen kommen (Kinderfestivals!). Schlüssel = Datum+Zeit+Klasse+Teams.
+  const map = new Map();
+  for (const s of spiele) {
+    const key = [s.datumISO, s.uhrzeit, s.altersklasse, s.heim, s.gast].join("|");
+    const alt = map.get(key);
+    if (!alt || fuellGrad(s) > fuellGrad(alt)) map.set(key, s);
+  }
+  return [...map.values()];
+}
+
+function filterSpiele(spiele, klassen, nurHeim) {
+  // klassen: Set der sichtbaren Altersklassen (leer = alle)
+  return spiele.filter(s =>
+    (klassen.size === 0 || klassen.has(s.altersklasse)) &&
+    (!nurHeim || isHeim(s))
+  );
+}
+
 function gruppiere(spiele, heuteISO) {
   const gruppen = new Map();
   for (const s of spiele) {
@@ -110,66 +171,130 @@ function gruppiere(spiele, heuteISO) {
 }
 // ==LOGIK-END==
 
+// ---- Zustand (persistiert im Browser) ----
+const state = Object.assign(
+  { klassen: [], nurHeim: false, expand: false, view: "wochen" },
+  JSON.parse(localStorage.getItem("fbde-spielplan") || "{}")
+);
+let ALLE = [];      // deduplizierte Rohdaten
+let HEUTE = "";
+
+function saveState() {
+  localStorage.setItem("fbde-spielplan", JSON.stringify(state));
+}
+
 function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
-function zeile(s) {
+function badgesFuer(s) {
+  const badges = [];
+  if (isHeim(s)) badges.push('<span class="badge badge-heim">HEIM</span>');
+  if (s.status === "cancelled") badges.push(`<span class="badge badge-aus">${esc(s.hinweis || "abgesagt")}</span>`);
+  if (s.spielart === "TU") badges.push('<span class="badge badge-tu">TU</span>');
+  return badges.join("");
+}
+
+function zeile(s, mitVergangenheit) {
   const abgesagt = s.status === "cancelled";
   const klassen = ["spiel"];
   if (isHeim(s)) klassen.push("heimspiel");
   if (abgesagt) klassen.push("abgesagt");
-  const badges = [];
-  if (isHeim(s)) badges.push('<span class="badge badge-heim">HEIM</span>');
-  if (abgesagt) badges.push(`<span class="badge badge-aus">${esc(s.hinweis || "abgesagt")}</span>`);
-  if (s.spielart === "TU") badges.push('<span class="badge badge-tu">TU</span>');
+  if (mitVergangenheit && s.datumISO < HEUTE) klassen.push("vergangen");
   const erg = !s.ergebnis || s.ergebnis === "-:-" ? "–" : esc(s.ergebnis);
   return `<tr class="${klassen.join(" ")}">
     <td>${esc(s.wochentag)} ${fmtDate(s.datumISO).slice(0, 6)}</td>
     <td>${esc(s.uhrzeit)}</td>
     <td>${esc(s.altersklasse)}</td>
-    <td class="paarung">${esc(s.heim)} vs. ${esc(s.gast)}${badges.join("")}</td>
+    <td class="paarung">${esc(s.heim)} vs. ${esc(s.gast)}${badgesFuer(s)}</td>
     <td class="ergebnis">${erg}</td>
     <td>${esc(s.spielort)}</td>
     <td>${esc(s.wettbewerb)}</td>
   </tr>`;
 }
 
-function render(data) {
-  document.getElementById("stand").textContent = "Stand: " + (data.stand || "unbekannt");
-  const heute = new Date().toLocaleDateString("sv-SE"); // YYYY-MM-DD lokal
-  const gruppen = gruppiere(data.spiele || [], heute);
+function renderWochenenden(spiele) {
+  const gruppen = gruppiere(spiele, HEUTE);
   const naechste = gruppen.find(g => !g.vergangen);
-  const main = document.getElementById("inhalt");
-  if (gruppen.length === 0) {
-    main.innerHTML = '<div class="fehler">Keine Spiele gefunden.</div>';
-    return;
-  }
-  main.innerHTML = gruppen.map(g => {
+  if (gruppen.length === 0) return '<div class="fehler">Keine Spiele im aktuellen Filter.</div>';
+  return gruppen.map(g => {
     const offen = naechste && g.key === naechste.key ? " open" : "";
     const cls = "weekend" + (g.vergangen ? " past" : "") + (offen ? " current" : "");
+    const anzahl = g.spiele.length === 1 ? "1 Spiel" : g.spiele.length + " Spiele";
     return `<section class="${cls}">
       <details${offen}>
-        <summary>Fr ${fmtDate(g.key)} – So ${fmtDate(g.sonntag)} (${g.spiele.length} Spiele)</summary>
+        <summary>Fr ${fmtDate(g.key)} – So ${fmtDate(g.sonntag)} (${anzahl})</summary>
         <table>
           <thead><tr><th>Tag</th><th>Zeit</th><th>Klasse</th><th>Begegnung</th><th>Erg.</th><th>Spielort</th><th>Wettbewerb</th></tr></thead>
-          <tbody>${g.spiele.map(zeile).join("")}</tbody>
+          <tbody>${g.spiele.map(s => zeile(s, false)).join("")}</tbody>
         </table>
       </details>
     </section>`;
   }).join("");
 }
 
+function renderKompakt(spiele) {
+  if (spiele.length === 0) return '<div class="fehler">Keine Spiele im aktuellen Filter.</div>';
+  const sortiert = [...spiele].sort((a, b) => (a.datumISO + a.uhrzeit).localeCompare(b.datumISO + b.uhrzeit));
+  return `<div class="kompakt-box"><table>
+    <thead><tr><th>Datum</th><th>Zeit</th><th>Klasse</th><th>Begegnung</th><th>Erg.</th><th>Spielort</th><th>Wettbewerb</th></tr></thead>
+    <tbody>${sortiert.map(s => zeile(s, true)).join("")}</tbody>
+  </table></div>`;
+}
+
+function render() {
+  const gefiltert = filterSpiele(ALLE, new Set(state.klassen), state.nurHeim);
+  document.getElementById("inhalt").innerHTML =
+    state.view === "kompakt" ? renderKompakt(gefiltert) : renderWochenenden(gefiltert);
+  document.getElementById("v-wochen").classList.toggle("active", state.view === "wochen");
+  document.getElementById("v-kompakt").classList.toggle("active", state.view === "kompakt");
+}
+
+function renderChips() {
+  const klassen = [...new Set(ALLE.map(s => s.altersklasse).filter(Boolean))].sort();
+  document.getElementById("klassen-chips").innerHTML = klassen.map(k =>
+    `<button type="button" class="chip${state.klassen.length === 0 || state.klassen.includes(k) ? " active" : ""}" data-k="${esc(k)}">${esc(k)}</button>`
+  ).join("");
+  document.querySelectorAll(".chip").forEach(chip => chip.addEventListener("click", () => {
+    const k = chip.dataset.k;
+    // Keine Auswahl (= alle aktiv) -> Klick startet Einzelauswahl
+    if (state.klassen.length === 0) {
+      state.klassen = klassen.filter(x => x !== k);
+    } else if (state.klassen.includes(k)) {
+      state.klassen = state.klassen.filter(x => x !== k);
+    } else {
+      state.klassen = [...state.klassen, k];
+    }
+    if (state.klassen.length === klassen.length || state.klassen.length === 0) state.klassen = [];
+    saveState(); renderChips(); render();
+  }));
+}
+
+document.getElementById("f-heim").checked = state.nurHeim;
+document.getElementById("f-expand").checked = state.expand;
+document.getElementById("f-heim").addEventListener("change", e => { state.nurHeim = e.target.checked; saveState(); render(); });
+document.getElementById("f-expand").addEventListener("change", e => { state.expand = e.target.checked; saveState(); });
+document.getElementById("v-wochen").addEventListener("click", () => { state.view = "wochen"; saveState(); render(); });
+document.getElementById("v-kompakt").addEventListener("click", () => { state.view = "kompakt"; saveState(); render(); });
+
+// Beim Drucken nur aufklappen, wenn es der Nutzer aktiviert hat
+window.addEventListener("beforeprint", () => {
+  if (state.expand) document.querySelectorAll("details").forEach(d => d.open = true);
+});
+
 fetch("spieldaten.json", { cache: "no-store" })
   .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-  .then(render)
+  .then(data => {
+    document.getElementById("stand").textContent = "Stand: " + (data.stand || "unbekannt");
+    HEUTE = new Date().toLocaleDateString("sv-SE"); // YYYY-MM-DD lokal
+    ALLE = dedupe(data.spiele || []);
+    renderChips();
+    render();
+  })
   .catch(e => {
     document.getElementById("stand").textContent = "";
     document.getElementById("inhalt").innerHTML = '<div class="fehler">spieldaten.json konnte nicht geladen werden (' + esc(e.message) + ").</div>";
   });
-
-// Beim Drucken alle Wochenenden aufklappen
-window.addEventListener("beforeprint", () => document.querySelectorAll("details").forEach(d => d.open = true));
 </script>
 </body>
 </html>
