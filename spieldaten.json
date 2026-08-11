@@ -1,5 +1,5 @@
 {
-  "stand": "9.8.2026, 18:07:06 Uhr",
+  "stand": "11.8.2026, 20:00:09 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -433,6 +433,21 @@
       "status": "scheduled",
       "hinweis": "",
       "spielort": "Kunstrasenplatz Kesseldorf",
+      "wettbewerb": "Vereinsturnier",
+      "spielart": "TU"
+    },
+    {
+      "kennung": "031OB68M6O000001VS5489BTVV1LNS7C-R-38997b",
+      "datumISO": "2026-08-29",
+      "wochentag": "Sa",
+      "uhrzeit": "13:00",
+      "altersklasse": "E-Junioren",
+      "heim": "LSV Gorknitz 61 - Kinderfestival",
+      "gast": "SV Chemie Dohna U10/U11 5x5",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportplatz Gorknitz",
       "wettbewerb": "Vereinsturnier",
       "spielart": "TU"
     },
