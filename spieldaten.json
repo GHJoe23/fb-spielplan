@@ -1,5 +1,5 @@
 {
-  "stand": "15.8.2026, 17:07:04 Uhr",
+  "stand": "15.8.2026, 18:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -174,8 +174,8 @@
       "altersklasse": "Herren",
       "heim": "Heidenauer SV",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Heidenau Rasenplatz",
       "wettbewerb": "Landesklasse",
