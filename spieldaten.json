@@ -1,5 +1,5 @@
 {
-  "stand": "15.8.2026, 18:07:04 Uhr",
+  "stand": "16.8.2026, 13:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -189,8 +189,8 @@
       "altersklasse": "D-Junioren",
       "heim": "FSV Lokomotive Dresden",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:19",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Sportpark Ostra Platz 21 Kunstrasen",
       "wettbewerb": "Kreisfreundschaftsspiele",
