@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SV Chemie Dohna — Spieltagsflyer</title>
+<style>
+  /* Vereinsfarben SV Chemie Dohna: Gruen #99FF00 / Schwarz #111111 / Weiss */
+  :root { --gruen: #99ff00; --gruen-dunkel: #5cb800; --schwarz: #111111; --weiss: #ffffff; --grau: #bbbbbb; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #333; font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; display: flex; justify-content: center; }
+  #stage { transform-origin: top center; }
+
+  /* Flyer-Leinwand 1080x1350 (WhatsApp/Instagram-tauglich). Innen alles in em -> Auto-Skalierung ueber font-size. */
+  #flyer { width: 1080px; height: 1350px; background: var(--schwarz); color: var(--weiss);
+           display: flex; flex-direction: column; font-size: 30px; overflow: hidden; position: relative; }
+  #flyer::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 14px; background: var(--gruen); }
+
+  header { display: flex; align-items: center; gap: 0.8em; padding: 0.9em 1.2em 0.6em 1.6em; }
+  header img { height: 4.4em; width: 4.4em; object-fit: contain; background: var(--weiss); border-radius: 50%; padding: 0.25em; }
+  .verein { font-size: 0.85em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gruen); font-weight: 700; }
+  .titel { font-size: 2.1em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.05; }
+  .zeitraum { font-size: 0.95em; color: var(--grau); margin-top: 0.3em; }
+
+  main { flex: 1; padding: 0.3em 1.2em 0 1.6em; }
+  .tag { margin-top: 0.55em; }
+  .tag-kopf { font-size: 1.05em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+              color: var(--gruen); border-bottom: 2px solid var(--gruen); padding-bottom: 0.15em; margin-bottom: 0.25em; }
+
+  .spiel { display: flex; align-items: center; gap: 0.6em; padding: 0.28em 0; border-bottom: 1px solid #2c2c2c; }
+  .spiel:last-child { border-bottom: none; }
+  .logos { display: flex; align-items: center; gap: 0.15em; flex: 0 0 auto; }
+  .logos img { width: 1.9em; height: 1.9em; object-fit: contain; background: var(--weiss); border-radius: 50%; padding: 0.08em; }
+  .text { flex: 1; min-width: 0; }
+  .paarung { font-size: 1.02em; font-weight: 700; line-height: 1.15; }
+  .meta { font-size: 0.78em; color: var(--grau); margin-top: 0.12em; }
+  .meta .wettbewerb { color: var(--gruen); font-weight: 700; }
+  .seite { flex: 0 0 auto; font-size: 0.72em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+           padding: 0.3em 0.6em; border-radius: 0.35em; }
+  .seite.heim { background: var(--gruen); color: var(--schwarz); }
+  .seite.aus { border: 2px solid var(--gruen); color: var(--gruen); }
+  .erg { flex: 0 0 auto; font-size: 1.5em; font-weight: 800; color: var(--gruen); min-width: 2.2em; text-align: right; }
+  .spiel.abgesagt { opacity: 0.55; }
+  .spiel.abgesagt .paarung { text-decoration: line-through; }
+  .hinweis { color: #ff8080; font-weight: 700; }
+
+  .leer { margin-top: 2.5em; text-align: center; color: var(--grau); font-size: 1.1em; line-height: 1.5; }
+
+  footer { display: flex; justify-content: space-between; align-items: center; padding: 0.5em 1.2em 0.55em 1.6em;
+           font-size: 0.8em; color: var(--grau); border-top: 2px solid var(--gruen); }
+  footer .ruf { color: var(--gruen); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="flyer">
+    <header>
+      <img src="assets/chemie-logo-xxl.png" alt="Wappen SV Chemie Dohna">
+      <div>
+        <div class="verein">SV Chemie Dohna</div>
+        <div class="titel" id="titel">Spieltag</div>
+        <div class="zeitraum" id="zeitraum">l&auml;dt&hellip;</div>
+      </div>
+    </header>
+    <main id="spiele"></main>
+    <footer>
+      <span class="ruf">Eisern Chemie! 🟢⚪</span>
+      <span>ghjoe23.github.io/fb-spielplan</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+// Spieltagsflyer: liest spieldaten.json + vereine.json, rendert das Wochenende (Fr–So).
+// Parameter: ?modus=vorschau (Default, kommendes/laufendes Wochenende) | ergebnisse (letztes Wochenende)
+//            ?datum=YYYY-MM-DD (Referenztag ueberschreiben, fuer Tests)
+// Rohinhalt aus der Tabelle: volle Mannschaftsnamen, Wettbewerb, Spielort — keine Umdichtungen.
+const params = new URLSearchParams(location.search);
+const MODUS = params.get('modus') === 'ergebnisse' ? 'ergebnisse' : 'vorschau';
+const REF = params.get('datum') ? new Date(params.get('datum') + 'T12:00:00') : new Date();
+
+function wochenende(ref, richtung) {
+  // Liefert [Freitag 00:00, Sonntag 23:59:59] des kommenden (vorschau) bzw. letzten (ergebnisse) Wochenendes.
+  const d = new Date(ref); d.setHours(0, 0, 0, 0);
+  const wt = d.getDay(); // 0=So .. 5=Fr 6=Sa
+  let fr;
+  if (richtung === 'next') fr = (wt >= 5) ? d : new Date(d.setDate(d.getDate() + ((5 - wt + 7) % 7 || 7)));
+  else { const back = (wt + 2) % 7; fr = new Date(d.setDate(d.getDate() - back - (wt >= 5 ? 7 : 0))); }
+  const freitag = new Date(fr); freitag.setHours(0, 0, 0, 0);
+  const sonntag = new Date(fr); sonntag.setDate(sonntag.getDate() + 2); sonntag.setHours(23, 59, 59, 999);
+  return [freitag, sonntag];
+}
+
+const fmt = (d) => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+const CHEMIE = 'chemie dohna';
+const istChemie = (name) => (name || '').toLowerCase().includes(CHEMIE);
+
+async function start() {
+  const [spieldaten, vereine] = await Promise.all([
+    fetch('spieldaten.json').then(r => r.json()),
+    fetch('vereine.json').then(r => r.json())
+  ]);
+  const [von, bis] = wochenende(REF, MODUS === 'vorschau' ? 'next' : 'prev');
+  document.getElementById('titel').textContent = MODUS === 'vorschau' ? 'Spieltag' : 'Ergebnisse';
+  document.getElementById('zeitraum').textContent = fmt(von) + ' – ' + fmt(bis);
+
+  const logoFuer = (name) => istChemie(name) ? 'assets/chemie-logo.png'
+                        : (vereine[name] || 'logos/_placeholder.png');
+
+  const imFenster = (spieldaten.spiele || []).filter(s => {
+    const t = new Date(s.datumISO + 'T12:00:00');
+    if (t < von || t > bis) return false;
+    if (s.status === 'entfernt') return false; // verbandsseitig geloescht -> nicht zeigen
+    if (MODUS === 'ergebnisse') return s.ergebnis && s.ergebnis !== '-:-';
+    return true; // vorschau: scheduled + cancelled (mit Hinweis)
+  }).sort((a, b) => (a.datumISO + a.uhrzeit).localeCompare(b.datumISO + b.uhrzeit));
+
+  const main = document.getElementById('spiele');
+  if (imFenster.length === 0) {
+    main.innerHTML = '<div class="leer">Spielfreies Wochenende —<br>keine Spiele gemeldet.</div>';
+  } else {
+    const tage = {};
+    for (const s of imFenster) (tage[s.datumISO] = tage[s.datumISO] || []).push(s);
+    main.innerHTML = Object.entries(tage).map(([iso, spiele]) => {
+      const kopf = spiele[0].wochentag + ', ' + fmt(new Date(iso + 'T12:00:00'));
+      const zeilen = spiele.map(s => {
+        const abg = s.status === 'cancelled';
+        const seite = istChemie(s.heim);
+        const rechts = MODUS === 'ergebnisse'
+          ? `<div class="erg">${s.ergebnis}</div>`
+          : `<div class="seite ${seite ? 'heim' : 'aus'}">${seite ? 'Heim' : 'Ausw&auml;rts'}</div>`;
+        const hinweis = (abg && s.hinweis) ? ` · <span class="hinweis">${s.hinweis}</span>` : '';
+        return `<div class="spiel${abg ? ' abgesagt' : ''}">
+          <div class="logos"><img src="${logoFuer(s.heim)}" alt=""><img src="${logoFuer(s.gast)}" alt=""></div>
+          <div class="text">
+            <div class="paarung">${s.heim} – ${s.gast}</div>
+            <div class="meta">${s.uhrzeit} Uhr · <span class="wettbewerb">${s.wettbewerb}</span>${s.spielort ? ' · ' + s.spielort : ''}${hinweis}</div>
+          </div>${rechts}</div>`;
+      }).join('');
+      return `<div class="tag"><div class="tag-kopf">${kopf}</div>${zeilen}</div>`;
+    }).join('');
+  }
+
+  // Auto-Fit: Schrift schrittweise verkleinern, bis der Inhalt in 1350px Hoehe passt.
+  const flyer = document.getElementById('flyer');
+  let fs = 30;
+  while (flyer.scrollHeight > 1350 && fs > 17) { fs -= 1; flyer.style.fontSize = fs + 'px'; }
+
+  // Vorschau-Skalierung aufs Browserfenster (beim Headless-Rendering 1080x1350 -> Faktor 1).
+  const scale = Math.min(1, (window.innerWidth - 24) / 1080, (window.innerHeight - 24) / 1350);
+  const st = document.getElementById('stage');
+  st.style.transform = 'scale(' + scale + ')';
+  st.style.width = 1080 * scale + 'px';
+  st.style.height = 1350 * scale + 'px';
+}
+start().catch(e => { document.getElementById('zeitraum').textContent = 'Fehler: ' + e.message; });
+</script>
+</body>
+</html>
