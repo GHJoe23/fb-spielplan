@@ -5,50 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SV Chemie Dohna — Spieltagsflyer</title>
 <style>
-  /* Vereinsfarben SV Chemie Dohna: Gruen #99FF00 / Schwarz #111111 / Weiss */
-  :root { --gruen: #99ff00; --gruen-dunkel: #5cb800; --schwarz: #111111; --weiss: #ffffff; --grau: #bbbbbb; }
+  /* Design-Tokens wie develop.chemie-dohna.de (Theme chemie-dohna-2026) */
+  @font-face { font-family: 'Anton'; font-weight: 400; font-display: swap;
+               src: url(assets/fonts/anton-400-latin.woff2) format('woff2'); }
+  @font-face { font-family: 'Barlow Condensed'; font-weight: 600; font-display: swap;
+               src: url(assets/fonts/barlow-condensed-600-latin.woff2) format('woff2'); }
+  @font-face { font-family: 'Barlow Condensed'; font-weight: 700; font-display: swap;
+               src: url(assets/fonts/barlow-condensed-700-latin.woff2) format('woff2'); }
+  @font-face { font-family: 'Hanken Grotesk'; font-weight: 400 800; font-display: swap;
+               src: url(assets/fonts/hanken-grotesk-latin.woff2) format('woff2'); }
+
+  :root { --neon: #99FE00; --neon-2: #B6FF45; --schwarz: #0A0D0A; --weiss: #FFFFFF;
+          --gruen-600: #176B36; --gruen-700: #114A26; --gruen-800: #0E331B;
+          --muted: #6c7a6c; --rule: #e6ebe1; --warn: #e8a000; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #333; font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; display: flex; justify-content: center; }
+  body { background: #3a3f3a; display: flex; justify-content: center; font-family: "Hanken Grotesk", system-ui, sans-serif; }
   #stage { transform-origin: top center; }
 
   /* Flyer-Leinwand 1080x1350 (WhatsApp/Instagram-tauglich). Innen alles in em -> Auto-Skalierung ueber font-size. */
-  #flyer { width: 1080px; height: 1350px; background: var(--schwarz); color: var(--weiss);
-           display: flex; flex-direction: column; font-size: 30px; overflow: hidden; position: relative; }
-  #flyer::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 14px; background: var(--gruen); }
+  #flyer { width: 1080px; height: 1350px; background: var(--weiss); color: var(--schwarz);
+           display: flex; flex-direction: column; font-size: 30px; overflow: hidden; }
 
-  header { display: flex; align-items: center; gap: 0.8em; padding: 0.9em 1.2em 0.6em 1.6em; }
-  header img { height: 4.4em; width: 4.4em; object-fit: contain; background: var(--weiss); border-radius: 50%; padding: 0.25em; }
-  .verein { font-size: 0.85em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gruen); font-weight: 700; }
-  .titel { font-size: 2.1em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.05; }
-  .zeitraum { font-size: 0.95em; color: var(--grau); margin-top: 0.3em; }
+  header { display: flex; align-items: center; gap: 0.7em; padding: 0.75em 1.1em 0.45em 1.1em; }
+  header img { height: 4.2em; width: 4.2em; object-fit: contain; }
+  .verein { font-family: "Barlow Condensed"; font-weight: 700; font-size: 0.95em; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--gruen-600); }
+  .titel { font-family: "Anton"; font-size: 2.6em; text-transform: uppercase; line-height: 0.95; }
+  .zeitraum { font-family: "Barlow Condensed"; font-weight: 600; font-size: 1.05em; color: var(--muted); margin-top: 0.25em; }
+  .kopf-regel { height: 0.28em; background: var(--neon); margin: 0 1.1em; }
 
-  main { flex: 1; padding: 0.3em 1.2em 0 1.6em; }
-  .tag { margin-top: 0.55em; }
-  .tag-kopf { font-size: 1.05em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
-              color: var(--gruen); border-bottom: 2px solid var(--gruen); padding-bottom: 0.15em; margin-bottom: 0.25em; }
+  main { flex: 1; padding: 0.35em 1.1em 0 1.1em; }
+  .tag { margin-top: 0.5em; }
+  .tag-kopf { font-family: "Anton"; font-size: 1.25em; text-transform: uppercase; letter-spacing: 0.03em;
+              padding-bottom: 0.18em; margin-bottom: 0.2em; border-bottom: 2px solid var(--schwarz); }
+  .tag-kopf::before { content: ""; display: inline-block; width: 0.42em; height: 0.85em;
+                      background: var(--neon); margin-right: 0.4em; }
 
-  .spiel { display: flex; align-items: center; gap: 0.6em; padding: 0.28em 0; border-bottom: 1px solid #2c2c2c; }
+  .spiel { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.55em;
+           padding: 0.3em 0; border-bottom: 1px solid var(--rule); }
   .spiel:last-child { border-bottom: none; }
-  .logos { display: flex; align-items: center; gap: 0.15em; flex: 0 0 auto; }
-  .logos img { width: 1.9em; height: 1.9em; object-fit: contain; background: var(--weiss); border-radius: 50%; padding: 0.08em; }
-  .text { flex: 1; min-width: 0; }
-  .paarung { font-size: 1.02em; font-weight: 700; line-height: 1.15; }
-  .meta { font-size: 0.78em; color: var(--grau); margin-top: 0.12em; }
-  .meta .wettbewerb { color: var(--gruen); font-weight: 700; }
-  .seite { flex: 0 0 auto; font-size: 0.72em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
-           padding: 0.3em 0.6em; border-radius: 0.35em; }
-  .seite.heim { background: var(--gruen); color: var(--schwarz); }
-  .seite.aus { border: 2px solid var(--gruen); color: var(--gruen); }
-  .erg { flex: 0 0 auto; font-size: 1.5em; font-weight: 800; color: var(--gruen); min-width: 2.2em; text-align: right; }
+  .wappen { width: 2.3em; height: 2.3em; object-fit: contain; }
+  .wappen-fehlt { position: relative; width: 2.3em; height: 2.3em; }
+  .wappen-fehlt svg { width: 100%; height: 100%; }
+  .wappen-fehlt::after { content: "!"; position: absolute; right: -0.15em; top: -0.15em; width: 0.85em; height: 0.85em;
+                         background: var(--warn); color: var(--weiss); font-family: "Barlow Condensed"; font-weight: 700;
+                         font-size: 0.55em; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .mitte { text-align: center; min-width: 0; }
+  .paarung { font-weight: 700; font-size: 1.0em; line-height: 1.15; }
+  .meta { font-family: "Barlow Condensed"; font-weight: 600; font-size: 0.82em; color: var(--muted); margin-top: 0.1em; }
+  .meta .klasse { color: var(--schwarz); font-weight: 700; }
+  .meta .wettbewerb { color: var(--gruen-700); font-weight: 700; }
+  .seite { display: inline-block; font-family: "Barlow Condensed"; font-weight: 700; font-size: 0.68em;
+           text-transform: uppercase; letter-spacing: 0.08em; padding: 0.22em 0.7em; border-radius: 1em; margin-top: 0.3em; }
+  .seite.heim { background: var(--neon); color: var(--schwarz); }
+  .seite.aus { border: 2px solid var(--gruen-600); color: var(--gruen-600); }
+  .erg { font-family: "Anton"; font-size: 1.7em; color: var(--gruen-700); margin-top: 0.05em; line-height: 1; }
   .spiel.abgesagt { opacity: 0.55; }
   .spiel.abgesagt .paarung { text-decoration: line-through; }
-  .hinweis { color: #ff8080; font-weight: 700; }
+  .hinweis { color: #b3401e; font-weight: 700; }
 
-  .leer { margin-top: 2.5em; text-align: center; color: var(--grau); font-size: 1.1em; line-height: 1.5; }
+  .leer { margin-top: 2.5em; text-align: center; color: var(--muted); font-size: 1.1em; line-height: 1.5; }
 
-  footer { display: flex; justify-content: space-between; align-items: center; padding: 0.5em 1.2em 0.55em 1.6em;
-           font-size: 0.8em; color: var(--grau); border-top: 2px solid var(--gruen); }
-  footer .ruf { color: var(--gruen); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+  .warnung { margin: 0.3em 1.1em 0; padding: 0.35em 0.7em; background: #fdf3d7; border-left: 6px solid var(--warn);
+             font-family: "Barlow Condensed"; font-weight: 600; font-size: 0.75em; color: #7a5a00; }
+
+  footer { display: flex; justify-content: space-between; align-items: center; background: var(--schwarz);
+           padding: 0.5em 1.15em; font-family: "Barlow Condensed"; font-weight: 600; font-size: 0.85em; color: var(--weiss); }
+  footer .ruf { color: var(--neon); font-family: "Anton"; font-size: 1.15em; text-transform: uppercase; letter-spacing: 0.08em; }
 </style>
 </head>
 <body>
@@ -62,9 +85,11 @@
         <div class="zeitraum" id="zeitraum">l&auml;dt&hellip;</div>
       </div>
     </header>
+    <div class="kopf-regel"></div>
     <main id="spiele"></main>
+    <div class="warnung" id="warnung" style="display:none"></div>
     <footer>
-      <span class="ruf">Eisern Chemie! 🟢⚪</span>
+      <span class="ruf">Eisern Chemie!</span>
       <span>ghjoe23.github.io/fb-spielplan</span>
     </footer>
   </div>
@@ -74,7 +99,7 @@
 // Spieltagsflyer: liest spieldaten.json + vereine.json, rendert das Wochenende (Fr–So).
 // Parameter: ?modus=vorschau (Default, kommendes/laufendes Wochenende) | ergebnisse (letztes Wochenende)
 //            ?datum=YYYY-MM-DD (Referenztag ueberschreiben, fuer Tests)
-// Rohinhalt aus der Tabelle: volle Mannschaftsnamen, Wettbewerb, Spielort — keine Umdichtungen.
+// Rohinhalt aus der Tabelle: volle Mannschaftsnamen, Altersklasse, Wettbewerb, Spielort — keine Umdichtungen.
 const params = new URLSearchParams(location.search);
 const MODUS = params.get('modus') === 'ergebnisse' ? 'ergebnisse' : 'vorschau';
 const REF = params.get('datum') ? new Date(params.get('datum') + 'T12:00:00') : new Date();
@@ -95,6 +120,15 @@ const fmt = (d) => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-dig
 const CHEMIE = 'chemie dohna';
 const istChemie = (name) => (name || '').toLowerCase().includes(CHEMIE);
 
+// Fussball-Platzhalter (inline SVG, beliebig skalierbar), wenn kein Wappen existiert.
+const FUSSBALL_SVG = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#0A0D0A" stroke-width="5"/>
+  <path d="M50 30 L68 43 L61 64 L39 64 L32 43 Z" fill="#0A0D0A"/>
+  <g stroke="#0A0D0A" stroke-width="4" fill="none">
+    <path d="M50 30 L50 8"/><path d="M68 43 L89 35"/><path d="M61 64 L75 82"/>
+    <path d="M39 64 L25 82"/><path d="M32 43 L11 35"/>
+  </g></svg>`;
+
 async function start() {
   const [spieldaten, vereine] = await Promise.all([
     fetch('spieldaten.json').then(r => r.json()),
@@ -104,8 +138,14 @@ async function start() {
   document.getElementById('titel').textContent = MODUS === 'vorschau' ? 'Spieltag' : 'Ergebnisse';
   document.getElementById('zeitraum').textContent = fmt(von) + ' – ' + fmt(bis);
 
-  const logoFuer = (name) => istChemie(name) ? 'assets/chemie-logo.png'
-                        : (vereine[name] || 'logos/_placeholder.png');
+  let fehlendeWappen = 0;
+  const wappenHtml = (name) => {
+    if (istChemie(name)) return `<img class="wappen" src="assets/chemie-logo.png" alt="">`;
+    const src = vereine[name];
+    if (src) return `<img class="wappen" src="${src}" alt="">`;
+    fehlendeWappen++;
+    return `<span class="wappen-fehlt">${FUSSBALL_SVG}</span>`;
+  };
 
   const imFenster = (spieldaten.spiele || []).filter(s => {
     const t = new Date(s.datumISO + 'T12:00:00');
@@ -126,19 +166,28 @@ async function start() {
       const zeilen = spiele.map(s => {
         const abg = s.status === 'cancelled';
         const seite = istChemie(s.heim);
-        const rechts = MODUS === 'ergebnisse'
+        const mitte = MODUS === 'ergebnisse'
           ? `<div class="erg">${s.ergebnis}</div>`
-          : `<div class="seite ${seite ? 'heim' : 'aus'}">${seite ? 'Heim' : 'Ausw&auml;rts'}</div>`;
+          : `<div><span class="seite ${seite ? 'heim' : 'aus'}">${seite ? 'Heimspiel' : 'Ausw&auml;rts'}</span></div>`;
         const hinweis = (abg && s.hinweis) ? ` · <span class="hinweis">${s.hinweis}</span>` : '';
         return `<div class="spiel${abg ? ' abgesagt' : ''}">
-          <div class="logos"><img src="${logoFuer(s.heim)}" alt=""><img src="${logoFuer(s.gast)}" alt=""></div>
-          <div class="text">
+          ${wappenHtml(s.heim)}
+          <div class="mitte">
             <div class="paarung">${s.heim} – ${s.gast}</div>
-            <div class="meta">${s.uhrzeit} Uhr · <span class="wettbewerb">${s.wettbewerb}</span>${s.spielort ? ' · ' + s.spielort : ''}${hinweis}</div>
-          </div>${rechts}</div>`;
+            <div class="meta">${s.uhrzeit} Uhr · <span class="klasse">${s.altersklasse}</span> · <span class="wettbewerb">${s.wettbewerb}</span>${s.spielort ? ' · ' + s.spielort : ''}${hinweis}</div>
+            ${mitte}
+          </div>
+          ${wappenHtml(s.gast)}
+        </div>`;
       }).join('');
       return `<div class="tag"><div class="tag-kopf">${kopf}</div>${zeilen}</div>`;
     }).join('');
+  }
+
+  if (fehlendeWappen > 0) {
+    const w = document.getElementById('warnung');
+    w.style.display = 'block';
+    w.textContent = `⚠ ${fehlendeWappen} Wappen nicht hinterlegt (Fussball-Platzhalter) — Nachreichen ueber das Logo-Formular.`;
   }
 
   // Auto-Fit: Schrift schrittweise verkleinern, bis der Inhalt in 1350px Hoehe passt.
