@@ -90,6 +90,7 @@
     <div class="warnung" id="warnung" style="display:none"></div>
     <footer>
       <span class="ruf">Eisern Chemie!</span>
+      <span id="seitenanzeige"></span>
       <span>ghjoe23.github.io/fb-spielplan</span>
     </footer>
   </div>
@@ -103,6 +104,8 @@
 const params = new URLSearchParams(location.search);
 const MODUS = params.get('modus') === 'ergebnisse' ? 'ergebnisse' : 'vorschau';
 const REF = params.get('datum') ? new Date(params.get('datum') + 'T12:00:00') : new Date();
+const SEITE = Math.max(parseInt(params.get('seite') || '1', 10) || 1, 1);
+const PRO_SEITE = 9; // max. Spiele pro Flyer-Seite (Tagesgruppen bleiben zusammen)
 
 function wochenende(ref, richtung) {
   // Liefert [Freitag 00:00, Sonntag 23:59:59] des kommenden (vorschau) bzw. letzten (ergebnisse) Wochenendes.
@@ -158,10 +161,22 @@ async function start() {
   const main = document.getElementById('spiele');
   if (imFenster.length === 0) {
     main.innerHTML = '<div class="leer">Spielfreies Wochenende —<br>keine Spiele gemeldet.</div>';
+    document.body.dataset.seiten = 1;
   } else {
     const tage = {};
     for (const s of imFenster) (tage[s.datumISO] = tage[s.datumISO] || []).push(s);
-    main.innerHTML = Object.entries(tage).map(([iso, spiele]) => {
+    // Seiten bilden: ganze Tagesgruppen, bis PRO_SEITE Spiele voll sind.
+    const seiten = [[]];
+    let zaehl = 0;
+    for (const eintrag of Object.entries(tage)) {
+      if (zaehl > 0 && zaehl + eintrag[1].length > PRO_SEITE) { seiten.push([]); zaehl = 0; }
+      seiten[seiten.length - 1].push(eintrag);
+      zaehl += eintrag[1].length;
+    }
+    document.body.dataset.seiten = seiten.length;
+    const idx = Math.min(SEITE - 1, seiten.length - 1);
+    if (seiten.length > 1) document.getElementById('seitenanzeige').textContent = 'Seite ' + (idx + 1) + '/' + seiten.length;
+    main.innerHTML = seiten[idx].map(([iso, spiele]) => {
       const kopf = spiele[0].wochentag + ', ' + fmt(new Date(iso + 'T12:00:00'));
       const zeilen = spiele.map(s => {
         const abg = s.status === 'cancelled';
@@ -194,9 +209,11 @@ async function start() {
   const flyer = document.getElementById('flyer');
   let fs = 30;
   while (flyer.scrollHeight > 1350 && fs > 17) { fs -= 1; flyer.style.fontSize = fs + 'px'; }
+  if (flyer.scrollHeight > 1350) console.warn('Flyer laeuft ueber: zu viele Spiele auch bei kleinster Schrift (Seitenaufteilung pruefen)');
+  flyer.dataset.fertig = '1'; // Signal fuer den Headless-Renderer (/api/flyer)
 
-  // Vorschau-Skalierung aufs Browserfenster (beim Headless-Rendering 1080x1350 -> Faktor 1).
-  const scale = Math.min(1, (window.innerWidth - 24) / 1080, (window.innerHeight - 24) / 1350);
+  // Vorschau-Skalierung aufs Browserfenster (beim Headless-Rendering 1080x1350 -> Faktor exakt 1).
+  const scale = Math.min(1, window.innerWidth / 1080, window.innerHeight / 1350);
   const st = document.getElementById('stage');
   st.style.transform = 'scale(' + scale + ')';
   st.style.width = 1080 * scale + 'px';
