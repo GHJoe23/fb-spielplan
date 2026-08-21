@@ -205,12 +205,15 @@ async function start() {
     w.textContent = `⚠ ${fehlendeWappen} Wappen nicht hinterlegt (Fussball-Platzhalter) — Nachreichen ueber das Logo-Formular.`;
   }
 
-  // Auto-Fit: Schrift schrittweise verkleinern, bis der Inhalt in 1350px Hoehe passt.
-  const flyer = document.getElementById('flyer');
-  let fs = 30;
-  while (flyer.scrollHeight > 1350 && fs > 17) { fs -= 1; flyer.style.fontSize = fs + 'px'; }
-  if (flyer.scrollHeight > 1350) console.warn('Flyer laeuft ueber: zu viele Spiele auch bei kleinster Schrift (Seitenaufteilung pruefen)');
-  flyer.dataset.fertig = '1'; // Signal fuer den Headless-Renderer (/api/flyer)
+  // Auto-Fit und fertig-Signal erst NACH dem Font-Laden: mit Fallback-Fonts messen wir sonst
+  // falsch, die Webfonts (Anton/Barlow/Hanken) wachsen das Layout nachtraeglich -> Footer wuerde abgeschnitten.
+  document.fonts.ready.then(() => {
+    const flyer = document.getElementById('flyer');
+    let fs = 30;
+    while (flyer.scrollHeight > 1350 && fs > 17) { fs -= 1; flyer.style.fontSize = fs + 'px'; }
+    if (flyer.scrollHeight > 1350) console.warn('Flyer laeuft ueber: zu viele Spiele auch bei kleinster Schrift (Seitenaufteilung pruefen)');
+    flyer.dataset.fertig = '1'; // Signal fuer den Headless-Renderer (/api/flyer)
+  });
 
   // Vorschau-Skalierung aufs Browserfenster (beim Headless-Rendering 1080x1350 -> Faktor exakt 1).
   const scale = Math.min(1, window.innerWidth / 1080, window.innerHeight / 1350);
