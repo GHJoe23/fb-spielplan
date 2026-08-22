@@ -133,10 +133,10 @@ const FUSSBALL_SVG = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/s
   </g></svg>`;
 
 async function start() {
-  const [spieldaten, vereine] = await Promise.all([
-    fetch('spieldaten.json').then(r => r.json()),
-    fetch('vereine.json').then(r => r.json())
-  ]);
+  // Entwurfs-Modus: Daten wurden per add_init_script injiziert (POST /api/flyer),
+  // sonst wie bisher aus spieldaten.json (Repo-Stand).
+  const spieldaten = window.__ENTWURF__ || await fetch('spieldaten.json').then(r => r.json());
+  const vereine = await fetch('vereine.json').then(r => r.json());
   const [von, bis] = wochenende(REF, MODUS === 'vorschau' ? 'next' : 'prev');
   document.getElementById('titel').textContent = MODUS === 'vorschau' ? 'Spieltag' : 'Ergebnisse';
   document.getElementById('zeitraum').textContent = fmt(von) + ' – ' + fmt(bis);
