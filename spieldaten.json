@@ -1,5 +1,5 @@
 {
-  "stand": "22.8.2026, 13:07:04 Uhr",
+  "stand": "22.8.2026, 15:07:05 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -309,8 +309,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "SV Bannewitz",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:4",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "Kreispokal",
