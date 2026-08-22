@@ -1,5 +1,5 @@
 {
-  "stand": "20.8.2026, 19:24:12 Uhr",
+  "stand": "22.8.2026, 13:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -264,8 +264,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "SpG Dorfhain / Pretzschendorf",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:5",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Kreispokal",
