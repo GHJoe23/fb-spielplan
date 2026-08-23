@@ -1,5 +1,5 @@
 {
-  "stand": "23.8.2026, 14:07:04 Uhr",
+  "stand": "23.8.2026, 16:07:05 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -339,8 +339,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "Bischofswerda FV 08 II",
-      "ergebnis": "0:0",
-      "status": "live",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
