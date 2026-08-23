@@ -1,5 +1,5 @@
 {
-  "stand": "23.8.2026, 12:07:15 Uhr",
+  "stand": "23.8.2026, 14:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -324,8 +324,8 @@
       "altersklasse": "D-Junioren",
       "heim": "SG Stahl Schmiedeberg",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "3:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Schmiedeberg Kunstrasen",
       "wettbewerb": "Kreispokal",
@@ -339,8 +339,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "Bischofswerda FV 08 II",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:0",
+      "status": "live",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
