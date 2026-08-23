@@ -107,13 +107,28 @@ const REF = params.get('datum') ? new Date(params.get('datum') + 'T12:00:00') : 
 const SEITE = Math.max(parseInt(params.get('seite') || '1', 10) || 1, 1);
 const PRO_SEITE = 9; // max. Spiele pro Flyer-Seite (Tagesgruppen bleiben zusammen)
 
+function freitagWoche(d) {
+  const wt = d.getDay(); // 0=So .. 6=Sa
+  // Freitag der Mo-So-Woche: Mo-Fr -> dieser Freitag (Offset 0..4),
+  // Sa -> -1, So -> -2 (sonst kaeme der Freitag der FOLGENDEN Woche heraus).
+  const offset = (5 - wt + 7) % 7;
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate() + (offset > 4 ? offset - 7 : offset));
+}
 function wochenende(ref, richtung) {
-  // Liefert [Freitag 00:00, Sonntag 23:59:59] des kommenden (vorschau) bzw. letzten (ergebnisse) Wochenendes.
+  // Liefert [Freitag 00:00, Sonntag 23:59:59] auf Freitag-der-Woche-Basis:
+  // 'next': Mo-Do -> dieses Wochenende, Fr-So -> naechstes Wochenende (vorschau).
+  // 'prev': Sa/So -> das aktuelle, gerade zu Ende gehende Wochenende; Mo-Fr -> das davor (ergebnisse).
   const d = new Date(ref); d.setHours(0, 0, 0, 0);
-  const wt = d.getDay(); // 0=So .. 5=Fr 6=Sa
+  const wt = d.getDay();
+  const thisFr = freitagWoche(d);
   let fr;
-  if (richtung === 'next') fr = (wt >= 5) ? d : new Date(d.setDate(d.getDate() + ((5 - wt + 7) % 7 || 7)));
-  else { const back = (wt + 2) % 7; fr = new Date(d.setDate(d.getDate() - back - (wt >= 5 ? 7 : 0))); }
+  if (richtung === 'next') {
+    // Mo-Do -> dieses Wochenende; Fr-So -> naechstes Wochenende
+    fr = (wt >= 5 || wt === 0) ? new Date(thisFr.getTime() + 7 * 86400000) : thisFr;
+  } else {
+    // Sa/So -> das aktuelle/gerade zu Ende gehende Wochenende; Mo-Fr -> das davor
+    fr = (wt === 0 || wt === 6) ? thisFr : new Date(thisFr.getTime() - 7 * 86400000);
+  }
   const freitag = new Date(fr); freitag.setHours(0, 0, 0, 0);
   const sonntag = new Date(fr); sonntag.setDate(sonntag.getDate() + 2); sonntag.setHours(23, 59, 59, 999);
   return [freitag, sonntag];
@@ -133,13 +148,35 @@ const FUSSBALL_SVG = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/s
   </g></svg>`;
 
 async function start() {
-  // Entwurfs-Modus: Daten wurden per add_init_script injiziert (POST /api/flyer),
-  // sonst wie bisher aus spieldaten.json (Repo-Stand).
+  // Entwurfs-Modus: Daten wurden per add_init_script injiziert (POST /api/flyer) —
+  // der Produzent hat das Wochenfenster bereits gewaehlt, daher KEIN Fenster-Filter.
+  // Sonst (GET, spieldaten.json aus dem Repo): Fenster-Filter wie bisher.
   const spieldaten = window.__ENTWURF__ || await fetch('spieldaten.json').then(r => r.json());
   const vereine = await fetch('vereine.json').then(r => r.json());
-  const [von, bis] = wochenende(REF, MODUS === 'vorschau' ? 'next' : 'prev');
   document.getElementById('titel').textContent = MODUS === 'vorschau' ? 'Spieltag' : 'Ergebnisse';
-  document.getElementById('zeitraum').textContent = fmt(von) + ' – ' + fmt(bis);
+
+  // Modus-Regeln: ergebnisse -> nur Spiele mit Ergebnis; vorschau -> alle ausser 'entfernt'.
+  const modusFilter = (s) => s.status === 'entfernt' ? false
+    : (MODUS === 'ergebnisse' ? (s.ergebnis && s.ergebnis !== '-:-') : true);
+
+  let imFenster;
+  if (window.__ENTWURF__) {
+    // Injektierte Daten: kein Fenster-Filter; Zeitraum-Header aus min/max der gerenderten Spiele.
+    imFenster = (spieldaten.spiele || []).filter(modusFilter);
+    const iso = imFenster.map(s => s.datumISO).sort();
+    document.getElementById('zeitraum').textContent = iso.length > 0
+      ? fmt(new Date(iso[0] + 'T12:00:00')) + ' – ' + fmt(new Date(iso[iso.length - 1] + 'T12:00:00'))
+      : '';
+  } else {
+    const [von, bis] = wochenende(REF, MODUS === 'vorschau' ? 'next' : 'prev');
+    document.getElementById('zeitraum').textContent = fmt(von) + ' – ' + fmt(bis);
+    imFenster = (spieldaten.spiele || []).filter(s => {
+      const t = new Date(s.datumISO + 'T12:00:00');
+      if (t < von || t > bis) return false;
+      return modusFilter(s);
+    });
+  }
+  imFenster.sort((a, b) => (a.datumISO + a.uhrzeit).localeCompare(b.datumISO + b.uhrzeit));
 
   let fehlendeWappen = 0;
   const wappenHtml = (name) => {
@@ -149,14 +186,6 @@ async function start() {
     fehlendeWappen++;
     return `<span class="wappen-fehlt">${FUSSBALL_SVG}</span>`;
   };
-
-  const imFenster = (spieldaten.spiele || []).filter(s => {
-    const t = new Date(s.datumISO + 'T12:00:00');
-    if (t < von || t > bis) return false;
-    if (s.status === 'entfernt') return false; // verbandsseitig geloescht -> nicht zeigen
-    if (MODUS === 'ergebnisse') return s.ergebnis && s.ergebnis !== '-:-';
-    return true; // vorschau: scheduled + cancelled (mit Hinweis)
-  }).sort((a, b) => (a.datumISO + a.uhrzeit).localeCompare(b.datumISO + b.uhrzeit));
 
   const main = document.getElementById('spiele');
   if (imFenster.length === 0) {
