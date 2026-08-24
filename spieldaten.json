@@ -1,5 +1,5 @@
 {
-  "stand": "24.8.2026, 08:00:07 Uhr",
+  "stand": "24.8.2026, 20:00:08 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -572,21 +572,6 @@
       "spielart": "TU"
     },
     {
-      "kennung": "031J03KFKC000000VS5489BUVVKNMR0J",
-      "datumISO": "2026-09-05",
-      "wochentag": "Sa",
-      "uhrzeit": "10:00",
-      "altersklasse": "D-Junioren",
-      "heim": "SC Einheit Bahratal-Berggießhübel",
-      "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "Sportanlage Markersbach KR",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
       "kennung": "031IFTP7MO000000VS5489BTVSRD0UH9",
       "datumISO": "2026-09-05",
       "wochentag": "Sa",
@@ -598,6 +583,21 @@
       "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
+      "kennung": "031J03KFKC000000VS5489BUVVKNMR0J",
+      "datumISO": "2026-09-05",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "D-Junioren",
+      "heim": "SC Einheit Bahratal-Berggießhübel",
+      "gast": "SV Chemie Dohna",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportanlage Markersbach KR",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -957,7 +957,7 @@
       "ergebnis": "-:-",
       "status": "scheduled",
       "hinweis": "",
-      "spielort": "",
+      "spielort": "Sportanlage Poisenblick KR",
       "wettbewerb": "Vereinsturnier",
       "spielart": "TU"
     },
