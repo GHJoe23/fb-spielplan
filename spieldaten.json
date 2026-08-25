@@ -1,5 +1,5 @@
 {
-  "stand": "24.8.2026, 20:00:08 Uhr",
+  "stand": "25.8.2026, 20:00:09 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -705,6 +705,21 @@
       "spielort": "Stadion Freital-Weißig",
       "wettbewerb": "2.Kreisliga (B)",
       "spielart": "ME"
+    },
+    {
+      "kennung": "031H2IV0P8000001VS5489BTVVG7L386-R-fffb58",
+      "datumISO": "2026-09-13",
+      "wochentag": "So",
+      "uhrzeit": "09:30",
+      "altersklasse": "E-Junioren",
+      "heim": "SV Aufbau Pirna-Copitz - Kinderfestival",
+      "gast": "SV Chemie Dohna U10/U11 6x6",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "SpA Pirna Walter-Hultsch-Heim",
+      "wettbewerb": "Vereinsturnier",
+      "spielart": "TU"
     },
     {
       "kennung": "031J03KFA4000000VS5489BUVVKNMR0J",
