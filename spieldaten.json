@@ -1,5 +1,5 @@
 {
-  "stand": "28.8.2026, 20:00:07 Uhr",
+  "stand": "28.8.2026, 20:07:02 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -234,8 +234,8 @@
       "altersklasse": "F-Junioren",
       "heim": "SV Chemie Dohna - Kinderfestival",
       "gast": "SV Chemie Dohna 2. U8/U9",
-      "ergebnis": "o.E.",
-      "status": "acknowledged",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Vereinsturnier",
@@ -249,8 +249,8 @@
       "altersklasse": "F-Junioren",
       "heim": "SV Chemie Dohna - Kinderfestival",
       "gast": "SV Chemie Dohna 1. U8/U9",
-      "ergebnis": "o.E.",
-      "status": "acknowledged",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Vereinsturnier",
