@@ -1,5 +1,5 @@
 {
-  "stand": "29.8.2026, 08:07:01 Uhr",
+  "stand": "29.8.2026, 11:07:03 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -384,8 +384,8 @@
       "altersklasse": "C-Junioren",
       "heim": "1.FC Pirna",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "4:0",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Sonnenstein  Kunstrasen",
       "wettbewerb": "Kreisoberliga",
