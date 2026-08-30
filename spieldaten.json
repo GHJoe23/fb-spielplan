@@ -1,5 +1,5 @@
 {
-  "stand": "30.8.2026, 13:07:04 Uhr",
+  "stand": "30.8.2026, 15:07:05 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -504,8 +504,8 @@
       "altersklasse": "Herren",
       "heim": "BSG Stahl Altenberg",
       "gast": "SV Chemie Dohna 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:0",
+      "status": "live",
       "hinweis": "",
       "spielort": "Sportplatz Altenberg",
       "wettbewerb": "2.Kreisliga (B)",
