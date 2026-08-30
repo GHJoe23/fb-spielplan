@@ -1,5 +1,5 @@
 {
-  "stand": "30.8.2026, 16:07:03 Uhr",
+  "stand": "30.8.2026, 17:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -504,8 +504,8 @@
       "altersklasse": "Herren",
       "heim": "BSG Stahl Altenberg",
       "gast": "SV Chemie Dohna 2.",
-      "ergebnis": "5:0",
-      "status": "live",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Sportplatz Altenberg",
       "wettbewerb": "2.Kreisliga (B)",
@@ -652,7 +652,7 @@
       "wochentag": "So",
       "uhrzeit": "15:00",
       "altersklasse": "A-Junioren",
-      "heim": "SpG LSV Gorknitz 61 / SV Chemie Dohna 9er NWM",
+      "heim": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
       "gast": "SpG SV Wesenitztal / TSV Graupa",
       "ergebnis": "-:-",
       "status": "scheduled",
