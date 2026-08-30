@@ -1,5 +1,5 @@
 {
-  "stand": "30.8.2026, 08:07:03 Uhr",
+  "stand": "30.8.2026, 13:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -474,8 +474,8 @@
       "altersklasse": "D-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "SSV 1862 Langburkersdorf",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "12:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Kreisoberliga",
@@ -489,8 +489,8 @@
       "altersklasse": "A-Junioren",
       "heim": "SpG SG Stahl Schmiedeberg / Hartmannsdorfer SV Empor 1922",
       "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "13:0",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Waldsportplatz Hartmannsdorf",
       "wettbewerb": "Kreisoberliga",
