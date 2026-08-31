@@ -1,5 +1,5 @@
 {
-  "stand": "31.8.2026, 08:00:11 Uhr",
+  "stand": "31.8.2026, 20:00:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -632,6 +632,21 @@
       "spielart": "PO"
     },
     {
+      "kennung": "031H336368000001VS5489BTVVG7L386-R-4e7b10",
+      "datumISO": "2026-09-06",
+      "wochentag": "So",
+      "uhrzeit": "09:00",
+      "altersklasse": "E-Junioren",
+      "heim": "SV Glashütte - Kinderfestival",
+      "gast": "SV Chemie Dohna U10/U11 6x6",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Schlottwitz Rasenplatz",
+      "wettbewerb": "Vereinsturnier",
+      "spielart": "TU"
+    },
+    {
       "kennung": "031H336368000001VS5489BTVVG7L386-R",
       "datumISO": "2026-09-06",
       "wochentag": "So",
@@ -640,7 +655,7 @@
       "heim": "SV Glashütte - Kinderfestival",
       "gast": "SV Chemie Dohna U10/U11 6x6",
       "ergebnis": "-:-",
-      "status": "scheduled",
+      "status": "entfernt",
       "hinweis": "",
       "spielort": "Sportplatz Glashütte",
       "wettbewerb": "Vereinsturnier",
