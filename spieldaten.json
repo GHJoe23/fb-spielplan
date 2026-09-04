@@ -1,5 +1,5 @@
 {
-  "stand": "2.9.2026, 20:00:08 Uhr",
+  "stand": "4.9.2026, 08:00:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -730,7 +730,7 @@
       "heim": "SV Aufbau Pirna-Copitz - Kinderfestival",
       "gast": "SV Chemie Dohna U10/U11 6x6",
       "ergebnis": "-:-",
-      "status": "scheduled",
+      "status": "entfernt",
       "hinweis": "",
       "spielort": "SpA Pirna Walter-Hultsch-Heim",
       "wettbewerb": "Vereinsturnier",
