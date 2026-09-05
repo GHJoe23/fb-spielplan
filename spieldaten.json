@@ -1,5 +1,5 @@
 {
-  "stand": "5.9.2026, 15:07:06 Uhr",
+  "stand": "5.9.2026, 16:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -609,8 +609,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "1. FC Pirna 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "3:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "2.Kreisliga (B)",
@@ -624,7 +624,7 @@
       "altersklasse": "Herren",
       "heim": "SG Olympia 1896 Leipzig",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "0:0",
+      "ergebnis": "2:0",
       "status": "live",
       "hinweis": "",
       "spielort": "SG Olympia KR-Großfeld Mühlwiese",
