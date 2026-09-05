@@ -1,5 +1,5 @@
 {
-  "stand": "5.9.2026, 17:07:06 Uhr",
+  "stand": "5.9.2026, 18:07:05 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -624,8 +624,8 @@
       "altersklasse": "Herren",
       "heim": "SG Olympia 1896 Leipzig",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "4:0",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SG Olympia KR-Großfeld Mühlwiese",
       "wettbewerb": "Sachsen-Pokal",
