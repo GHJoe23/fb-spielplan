@@ -1,5 +1,5 @@
 {
-  "stand": "5.9.2026, 12:07:06 Uhr",
+  "stand": "5.9.2026, 13:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -594,8 +594,8 @@
       "altersklasse": "D-Junioren",
       "heim": "SC Einheit Bahratal-Berggießhübel",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:7",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Sportanlage Markersbach- Rasen",
       "wettbewerb": "Kreisoberliga",
