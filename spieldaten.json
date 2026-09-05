@@ -1,5 +1,5 @@
 {
-  "stand": "5.9.2026, 09:07:17 Uhr",
+  "stand": "5.9.2026, 12:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -579,8 +579,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "SpG SV Wesenitztal / SG Schönfeld",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "3:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Kreisoberliga",
