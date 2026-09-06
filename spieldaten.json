@@ -1,5 +1,5 @@
 {
-  "stand": "6.9.2026, 20:07:04 Uhr",
+  "stand": "6.9.2026, 21:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -849,9 +849,9 @@
       "altersklasse": "Herren",
       "heim": "FSV Oderwitz 02 zg.",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "Nichtantritt HEIM",
-      "status": "acknowledged",
-      "hinweis": "",
+      "ergebnis": "-:-",
+      "status": "cancelled",
+      "hinweis": "n.an. HEIM",
       "spielort": "",
       "wettbewerb": "Landesklasse",
       "spielart": "ME"
