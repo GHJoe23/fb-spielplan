@@ -1,5 +1,5 @@
 {
-  "stand": "12.9.2026, 08:07:04 Uhr",
+  "stand": "12.9.2026, 12:07:17 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -684,8 +684,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "SpG FSV 1924 Bad Schandau/Hohnstein SV/Traktor ReinhardtsdorfReinhardtsdorf",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "1:0",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Kreisoberliga",
