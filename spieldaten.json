@@ -1,5 +1,5 @@
 {
-  "stand": "13.9.2026, 16:07:06 Uhr",
+  "stand": "13.9.2026, 17:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -744,8 +744,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "Hoyerswerdaer FC",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:3",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
