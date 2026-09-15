@@ -1,5 +1,5 @@
 {
-  "stand": "14.9.2026, 20:00:10 Uhr",
+  "stand": "15.9.2026, 08:00:09 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -688,21 +688,6 @@
       "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-09-12",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "14.11.2026 11:00",
-      "status": "acknowledged",
-      "hinweis": "",
-      "spielort": "",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1397,6 +1382,21 @@
       "spielart": "ME"
     },
     {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-11-14",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportplatz Bad Schandau",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
       "kennung": "031CR06BO8000000VS5489BTVUS470OH",
       "datumISO": "2026-11-14",
       "wochentag": "Sa",
@@ -1440,6 +1440,21 @@
       "spielort": "Sportplatz Struppen",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
+    },
+    {
+      "kennung": "031SGOQBCG000000VS5489BTVTPHHFPR",
+      "datumISO": "2026-11-18",
+      "wochentag": "Mi",
+      "uhrzeit": "13:30",
+      "altersklasse": "A-Junioren",
+      "heim": "SpG LSV Gorknitz 61 /SV Chemie Dohna",
+      "gast": "SpG SV Wesenitztal / TSV Graupa",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportplatz Gorknitz",
+      "wettbewerb": "Kreispokal",
+      "spielart": "PO"
     },
     {
       "kennung": "031IFTP6P0000000VS5489BTVSRD0UH9",
