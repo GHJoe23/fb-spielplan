@@ -1,5 +1,5 @@
 {
-  "stand": "16.9.2026, 08:00:28 Uhr",
+  "stand": "16.9.2026, 20:00:12 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -692,6 +692,21 @@
       "spielart": "ME"
     },
     {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-09-12",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "14.11.2026 11:00",
+      "status": "acknowledged",
+      "hinweis": "",
+      "spielort": "",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
       "kennung": "031I2POBPC000000VS5489BTVSRD0UH9",
       "datumISO": "2026-09-12",
       "wochentag": "Sa",
@@ -822,7 +837,7 @@
       "ergebnis": "-:-",
       "status": "scheduled",
       "hinweis": "",
-      "spielort": "Stadion Dohna Kunstrasen",
+      "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "2.Kreisliga (B)",
       "spielart": "ME"
     },
@@ -1027,7 +1042,7 @@
       "wochentag": "So",
       "uhrzeit": "15:00",
       "altersklasse": "A-Junioren",
-      "heim": "SpG LSV Gorknitz 61 / SV Chemie Dohna 9er NWM",
+      "heim": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
       "gast": "SpG Pesterwitz/Freital-Weißig/Wilsdruff",
       "ergebnis": "-:-",
       "status": "scheduled",
@@ -1409,21 +1424,6 @@
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
-      "spielart": "ME"
-    },
-    {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-11-14",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "Sportplatz Bad Schandau",
-      "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
     {
