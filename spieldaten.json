@@ -1,5 +1,5 @@
 {
-  "stand": "16.9.2026, 20:00:12 Uhr",
+  "stand": "17.9.2026, 08:00:08 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -692,21 +692,6 @@
       "spielart": "ME"
     },
     {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-09-12",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "14.11.2026 11:00",
-      "status": "acknowledged",
-      "hinweis": "",
-      "spielort": "",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
       "kennung": "031I2POBPC000000VS5489BTVSRD0UH9",
       "datumISO": "2026-09-12",
       "wochentag": "Sa",
@@ -1067,10 +1052,25 @@
       "spielart": "ME"
     },
     {
+      "kennung": "031J03KENS000000VS5489BUVVKNMR0J",
+      "datumISO": "2026-10-04",
+      "wochentag": "So",
+      "uhrzeit": "09:30",
+      "altersklasse": "D-Junioren",
+      "heim": "Hohnsteiner SV 2.",
+      "gast": "SV Chemie Dohna",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportplatz Hohnstein",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
       "kennung": "0323OM14FG000000VS5489BTVT7QHFUC-R-a79c5d",
       "datumISO": "2026-10-04",
       "wochentag": "So",
-      "uhrzeit": "09:00",
+      "uhrzeit": "10:00",
       "altersklasse": "F-Junioren",
       "heim": "SV Chemie Dohna - Kinderfestival",
       "gast": "SV Chemie Dohna 1. U8/U9",
@@ -1085,7 +1085,7 @@
       "kennung": "0323OM14FG000000VS5489BTVT7QHFUC-R-22ce29",
       "datumISO": "2026-10-04",
       "wochentag": "So",
-      "uhrzeit": "09:00",
+      "uhrzeit": "10:00",
       "altersklasse": "F-Junioren",
       "heim": "SV Chemie Dohna - Kinderfestival",
       "gast": "SV Chemie Dohna 2. U8/U9 - 4x Teams",
@@ -1095,21 +1095,6 @@
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Vereinsturnier",
       "spielart": "TU"
-    },
-    {
-      "kennung": "031J03KENS000000VS5489BUVVKNMR0J",
-      "datumISO": "2026-10-04",
-      "wochentag": "So",
-      "uhrzeit": "09:30",
-      "altersklasse": "D-Junioren",
-      "heim": "Hohnsteiner SV 2.",
-      "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "Sportplatz Hohnstein",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
     },
     {
       "kennung": "031I2POB1C000000VS5489BTVSRD0UH9",
@@ -1424,6 +1409,21 @@
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
+      "spielart": "ME"
+    },
+    {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-11-14",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportplatz Bad Schandau",
+      "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
     {
