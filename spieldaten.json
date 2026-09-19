@@ -1,5 +1,5 @@
 {
-  "stand": "19.9.2026, 14:07:06 Uhr",
+  "stand": "19.9.2026, 15:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -819,8 +819,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "SV Wesenitztal 2.",
-      "ergebnis": "1:1",
-      "status": "live",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "2.Kreisliga (B)",
