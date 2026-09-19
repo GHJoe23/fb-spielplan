@@ -1,5 +1,5 @@
 {
-  "stand": "19.9.2026, 08:07:12 Uhr",
+  "stand": "19.9.2026, 13:07:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -789,8 +789,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SC Freital 2.",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "4:4",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Johannes-May-Stadion Rasenplatz",
       "wettbewerb": "Kreisoberliga",
@@ -819,8 +819,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "SV Wesenitztal 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:0",
+      "status": "live",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "2.Kreisliga (B)",
