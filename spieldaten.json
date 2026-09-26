@@ -1,5 +1,5 @@
 {
-  "stand": "26.9.2026, 08:07:04 Uhr",
+  "stand": "26.9.2026, 15:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -939,8 +939,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "SSV 1862 Langburkersdorf",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "4:2",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Kreisoberliga",
