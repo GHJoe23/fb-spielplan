@@ -1,5 +1,5 @@
 {
-  "stand": "26.9.2026, 15:07:06 Uhr",
+  "stand": "26.9.2026, 18:07:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -954,8 +954,8 @@
       "altersklasse": "Herren",
       "heim": "SV Königstein",
       "gast": "SV Chemie Dohna 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:4",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Sportplatz Pfaffendorf",
       "wettbewerb": "2.Kreisliga (B)",
