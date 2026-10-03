@@ -1,5 +1,5 @@
 {
-  "stand": "3.10.2026, 14:07:06 Uhr",
+  "stand": "3.10.2026, 15:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1059,8 +1059,8 @@
       "altersklasse": "A-Junioren",
       "heim": "SSV 1862 Langburkersdorf",
       "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "11:3",
-      "status": "live",
+      "ergebnis": "11:4",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Jahnsportplatz Langburkersdorf",
       "wettbewerb": "Kreisoberliga",
