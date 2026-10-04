@@ -1,5 +1,5 @@
 {
-  "stand": "4.10.2026, 08:07:05 Uhr",
+  "stand": "4.10.2026, 10:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1074,8 +1074,8 @@
       "altersklasse": "D-Junioren",
       "heim": "Hohnsteiner SV 2.",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:4",
+      "status": "live",
       "hinweis": "",
       "spielort": "Sportplatz Hohnstein",
       "wettbewerb": "Kreisoberliga",
