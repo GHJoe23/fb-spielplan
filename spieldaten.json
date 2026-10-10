@@ -1,5 +1,5 @@
 {
-  "stand": "10.10.2026, 14:07:05 Uhr",
+  "stand": "10.10.2026, 15:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1119,8 +1119,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "SV Bannewitz 2.",
-      "ergebnis": "0:1",
-      "status": "live",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "2.Kreisliga (B)",
@@ -1267,7 +1267,7 @@
       "wochentag": "So",
       "uhrzeit": "15:00",
       "altersklasse": "A-Junioren",
-      "heim": "SpG LSV Gorknitz 61 / SV Chemie Dohna 9er NWM",
+      "heim": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
       "gast": "SV Struppen",
       "ergebnis": "-:-",
       "status": "scheduled",
