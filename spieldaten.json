@@ -1,5 +1,5 @@
 {
-  "stand": "10.10.2026, 15:07:06 Uhr",
+  "stand": "10.10.2026, 16:07:08 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1119,8 +1119,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "SV Bannewitz 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "3:4",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "2.Kreisliga (B)",
