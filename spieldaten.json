@@ -1,5 +1,5 @@
 {
-  "stand": "11.10.2026, 16:07:09 Uhr",
+  "stand": "11.10.2026, 17:07:08 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1134,8 +1134,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "VfL Pirna-Copitz",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:2",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
