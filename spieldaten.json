@@ -1,5 +1,5 @@
 {
-  "stand": "17.10.2026, 08:07:08 Uhr",
+  "stand": "17.10.2026, 15:07:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1149,8 +1149,8 @@
       "altersklasse": "Herren",
       "heim": "SG Dresden Striesen",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:0",
+      "status": "live",
       "hinweis": "",
       "spielort": "SpA Bärensteiner Str Kunstrasen",
       "wettbewerb": "Landesklasse",
