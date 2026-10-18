@@ -1,5 +1,5 @@
 {
-  "stand": "18.10.2026, 08:07:07 Uhr",
+  "stand": "18.10.2026, 13:07:09 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1164,8 +1164,8 @@
       "altersklasse": "Herren",
       "heim": "TSV Kreischa 2.",
       "gast": "SV Chemie Dohna 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "6:2",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Sportplatz Kreischa",
       "wettbewerb": "2.Kreisliga (B)",
