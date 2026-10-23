@@ -1,5 +1,5 @@
 {
-  "stand": "23.10.2026, 20:00:09 Uhr",
+  "stand": "23.10.2026, 20:07:03 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1104,8 +1104,8 @@
       "altersklasse": "F-Junioren",
       "heim": "SV Chemie Dohna - Kinderfestival",
       "gast": "SV Chemie Dohna 1. U8/U9",
-      "ergebnis": "o.E.",
-      "status": "acknowledged",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Vereinsturnier",
@@ -1119,8 +1119,8 @@
       "altersklasse": "F-Junioren",
       "heim": "SV Chemie Dohna - Kinderfestival",
       "gast": "SV Chemie Dohna 2. U8/U9 - 4x Teams",
-      "ergebnis": "o.E.",
-      "status": "acknowledged",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Vereinsturnier",
