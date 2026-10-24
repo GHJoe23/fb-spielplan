@@ -1,5 +1,5 @@
 {
-  "stand": "24.10.2026, 08:07:04 Uhr",
+  "stand": "24.10.2026, 16:07:16 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1179,8 +1179,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "TSV Graupa 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "4:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "2.Kreisliga (B)",
