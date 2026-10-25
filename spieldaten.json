@@ -1,5 +1,5 @@
 {
-  "stand": "25.10.2026, 16:07:06 Uhr",
+  "stand": "25.10.2026, 17:07:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1209,8 +1209,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "FV Eintracht Niesky",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:6",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
