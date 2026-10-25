@@ -1,5 +1,5 @@
 {
-  "stand": "25.10.2026, 14:07:14 Uhr",
+  "stand": "25.10.2026, 15:07:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1194,8 +1194,8 @@
       "altersklasse": "D-Junioren",
       "heim": "FV B/W Zschachwitz",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:2",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Pirnaer Landstraße 267",
       "wettbewerb": "Kreisfreundschaftsspiele",
@@ -1209,7 +1209,7 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "FV Eintracht Niesky",
-      "ergebnis": "0:0",
+      "ergebnis": "1:3",
       "status": "live",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
