@@ -1,5 +1,5 @@
 {
-  "stand": "28.10.2026, 08:00:17 Uhr",
+  "stand": "28.10.2026, 20:00:09 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -688,6 +688,21 @@
       "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-09-12",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "14.11.2026 11:00",
+      "status": "acknowledged",
+      "hinweis": "",
+      "spielort": "",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1442,21 +1457,6 @@
       "spielart": "ME"
     },
     {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-11-14",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "Sportplatz Bad Schandau",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
       "kennung": "031CR06BO8000000VS5489BTVUS470OH",
       "datumISO": "2026-11-14",
       "wochentag": "Sa",
@@ -1480,7 +1480,7 @@
       "heim": "SSV Neustadt/Sachsen - Kinderfestival",
       "gast": "SV Chemie Dohna U10/U11 6x6",
       "ergebnis": "-:-",
-      "status": "scheduled",
+      "status": "entfernt",
       "hinweis": "",
       "spielort": "Volksbank Stadion Neustadt/Sa. KR",
       "wettbewerb": "Vereinsturnier",
@@ -1500,6 +1500,21 @@
       "spielort": "Sportplatz Struppen",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
+    },
+    {
+      "kennung": "031H3UG8Q4000000VS5489BTVVG7L386-R-e67a0c",
+      "datumISO": "2026-11-15",
+      "wochentag": "So",
+      "uhrzeit": "11:00",
+      "altersklasse": "E-Junioren",
+      "heim": "SSV Neustadt/Sachsen - Kinderfestival",
+      "gast": "SV Chemie Dohna U10/U11 6x6",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Volksbank Stadion Neustadt/Sa. KR",
+      "wettbewerb": "Vereinsturnier",
+      "spielart": "TU"
     },
     {
       "kennung": "031SGOQBCG000000VS5489BTVTPHHFPR",
