@@ -1,5 +1,5 @@
 {
-  "stand": "29.10.2026, 20:00:10 Uhr",
+  "stand": "30.10.2026, 08:00:31 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -688,21 +688,6 @@
       "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-09-12",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "14.11.2026 11:00",
-      "status": "acknowledged",
-      "hinweis": "",
-      "spielort": "",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1457,6 +1442,21 @@
       "spielart": "ME"
     },
     {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-11-14",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportplatz Bad Schandau",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
       "kennung": "031CR06BO8000000VS5489BTVUS470OH",
       "datumISO": "2026-11-14",
       "wochentag": "Sa",
@@ -1577,6 +1577,21 @@
       "spielart": "ME"
     },
     {
+      "kennung": "032I1V5530000001VS5489BTVU989P58-R-b9929e",
+      "datumISO": "2026-11-22",
+      "wochentag": "So",
+      "uhrzeit": "11:00",
+      "altersklasse": "G-Junioren",
+      "heim": "LSV Gorknitz 61 - Kinderfestival",
+      "gast": "SV Chemie Dohna U7",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "",
+      "wettbewerb": "Vereinsturnier",
+      "spielart": "TU"
+    },
+    {
       "kennung": "031CR06BAO000000VS5489BTVUS470OH",
       "datumISO": "2026-11-22",
       "wochentag": "So",
@@ -1605,6 +1620,21 @@
       "spielort": "Sportplatz Gorknitz",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
+    },
+    {
+      "kennung": "032I1TS3RS000001VS5489BTVU989P58-R-c9f06e",
+      "datumISO": "2026-11-28",
+      "wochentag": "Sa",
+      "uhrzeit": "09:00",
+      "altersklasse": "G-Junioren",
+      "heim": "SV Chemie Dohna - Kinderfestival",
+      "gast": "SV Chemie Dohna U7",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "",
+      "wettbewerb": "Vereinsturnier",
+      "spielart": "TU"
     },
     {
       "kennung": "031I2PO9OO000000VS5489BTVSRD0UH9",
