@@ -1,5 +1,5 @@
 {
-  "stand": "31.10.2026, 15:07:12 Uhr",
+  "stand": "31.10.2026, 16:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1254,8 +1254,8 @@
       "altersklasse": "Herren",
       "heim": "Post SV Dresden",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "4:6",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Hebbelstraße",
       "wettbewerb": "Landesklasse",
