@@ -1,5 +1,5 @@
 {
-  "stand": "31.10.2026, 14:07:06 Uhr",
+  "stand": "31.10.2026, 15:07:12 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1239,8 +1239,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "SV Blau-Gelb Stolpen",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "3:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "2.Kreisliga (B)",
@@ -1254,8 +1254,8 @@
       "altersklasse": "Herren",
       "heim": "Post SV Dresden",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "1:3",
-      "status": "live",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "SpA Hebbelstraße",
       "wettbewerb": "Landesklasse",
