@@ -1,5 +1,5 @@
 {
-  "stand": "31.10.2026, 08:07:03 Uhr",
+  "stand": "31.10.2026, 13:07:05 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1224,8 +1224,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "VfL Pirna-Copitz 07 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "3:5",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Kreisoberliga",
@@ -1254,8 +1254,8 @@
       "altersklasse": "Herren",
       "heim": "Post SV Dresden",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:1",
+      "status": "live",
       "hinweis": "",
       "spielort": "SpA Hebbelstraße",
       "wettbewerb": "Landesklasse",
