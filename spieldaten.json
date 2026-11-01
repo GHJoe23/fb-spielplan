@@ -1,5 +1,5 @@
 {
-  "stand": "1.11.2026, 20:00:07 Uhr",
+  "stand": "1.11.2026, 20:07:03 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1314,8 +1314,8 @@
       "altersklasse": "F-Junioren",
       "heim": "SG Gebergrund Goppeln - Kinderfestival",
       "gast": "SV Chemie Dohna 1. U8/U9",
-      "ergebnis": "o.E.",
-      "status": "acknowledged",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "SpA Wittgensdorfer Str.",
       "wettbewerb": "Vereinsturnier",
