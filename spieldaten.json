@@ -1,5 +1,5 @@
 {
-  "stand": "1.11.2026, 08:00:09 Uhr",
+  "stand": "1.11.2026, 12:07:05 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1269,8 +1269,8 @@
       "altersklasse": "D-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "1. FC Pirna 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "11:2",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "Kreisoberliga",
