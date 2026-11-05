@@ -1,5 +1,5 @@
 {
-  "stand": "5.11.2026, 08:00:25 Uhr",
+  "stand": "5.11.2026, 20:00:09 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -688,6 +688,21 @@
       "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-09-12",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "14.11.2026 11:00",
+      "status": "acknowledged",
+      "hinweis": "",
+      "spielort": "",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1412,21 +1427,6 @@
       "spielart": "ME"
     },
     {
-      "kennung": "031IFTP6S0000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-11-08",
-      "wochentag": "So",
-      "uhrzeit": "10:00",
-      "altersklasse": "C-Junioren",
-      "heim": "SV Pesterwitz 2.",
-      "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "SpA Pesterwitz Kunstrasen",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
       "kennung": "031IGIVGGK000000VS5489BTVSRD0UH9",
       "datumISO": "2026-11-08",
       "wochentag": "So",
@@ -1457,17 +1457,17 @@
       "spielart": "ME"
     },
     {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-11-14",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "kennung": "031IFTP6S0000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-11-13",
+      "wochentag": "Fr",
+      "uhrzeit": "18:30",
+      "altersklasse": "C-Junioren",
+      "heim": "SV Pesterwitz 2.",
+      "gast": "SV Chemie Dohna",
       "ergebnis": "-:-",
       "status": "scheduled",
       "hinweis": "",
-      "spielort": "Sportplatz Bad Schandau",
+      "spielort": "SpA Pesterwitz Kunstrasen",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1920,6 +1920,21 @@
       "spielort": "",
       "wettbewerb": "Vereinsturnier",
       "spielart": "TU"
+    },
+    {
+      "kennung": "032K3U582O000000VS5489BUVT7T9F23",
+      "datumISO": "2027-02-13",
+      "wochentag": "Sa",
+      "uhrzeit": "13:00",
+      "altersklasse": "Herren",
+      "heim": "VfB Hellerau-Klotzsche",
+      "gast": "SV Chemie Dohna",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "SpA Karl-Liebknecht-Str.",
+      "wettbewerb": "Kreisfreundschaftsspiele",
+      "spielart": "FS"
     },
     {
       "kennung": "031I2POH5K000000VS5489BTVSRD0UH9",
