@@ -1,5 +1,5 @@
 {
-  "stand": "5.11.2026, 20:00:09 Uhr",
+  "stand": "6.11.2026, 08:00:13 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -688,21 +688,6 @@
       "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-09-12",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "14.11.2026 11:00",
-      "status": "acknowledged",
-      "hinweis": "",
-      "spielort": "",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1460,7 +1445,7 @@
       "kennung": "031IFTP6S0000000VS5489BTVSRD0UH9",
       "datumISO": "2026-11-13",
       "wochentag": "Fr",
-      "uhrzeit": "18:30",
+      "uhrzeit": "19:00",
       "altersklasse": "C-Junioren",
       "heim": "SV Pesterwitz 2.",
       "gast": "SV Chemie Dohna",
@@ -1468,6 +1453,21 @@
       "status": "scheduled",
       "hinweis": "",
       "spielort": "SpA Pesterwitz Kunstrasen",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-11-14",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "Sportplatz Bad Schandau",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -2462,6 +2462,21 @@
       "spielart": "ME"
     },
     {
+      "kennung": "031I2POCNC000000VS5489BTVSRD0UH9",
+      "datumISO": "2027-06-19",
+      "wochentag": "Sa",
+      "uhrzeit": "12:30",
+      "altersklasse": "Herren",
+      "heim": "SV Pesterwitz 2.",
+      "gast": "SV Chemie Dohna 2.",
+      "ergebnis": "-:-",
+      "status": "scheduled",
+      "hinweis": "",
+      "spielort": "SpA Pesterwitz Rasenplatz",
+      "wettbewerb": "2.Kreisliga (B)",
+      "spielart": "ME"
+    },
+    {
       "kennung": "031CR06IP0000000VS5489BTVUS470OH",
       "datumISO": "2027-06-19",
       "wochentag": "Sa",
@@ -2474,21 +2489,6 @@
       "hinweis": "",
       "spielort": "SpA Pirnaer Landstraße 121b",
       "wettbewerb": "Landesklasse",
-      "spielart": "ME"
-    },
-    {
-      "kennung": "031I2POCNC000000VS5489BTVSRD0UH9",
-      "datumISO": "2027-06-20",
-      "wochentag": "So",
-      "uhrzeit": "12:30",
-      "altersklasse": "Herren",
-      "heim": "SV Pesterwitz 2.",
-      "gast": "SV Chemie Dohna 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "SpA Pesterwitz Rasenplatz",
-      "wettbewerb": "2.Kreisliga (B)",
       "spielart": "ME"
     },
     {
