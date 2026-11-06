@@ -1,5 +1,5 @@
 {
-  "stand": "6.11.2026, 08:07:05 Uhr",
+  "stand": "6.11.2026, 20:00:23 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -692,6 +692,21 @@
       "spielart": "ME"
     },
     {
+      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-09-12",
+      "wochentag": "Sa",
+      "uhrzeit": "11:00",
+      "altersklasse": "A-Junioren",
+      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
+      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
+      "ergebnis": "14.11.2026 11:00",
+      "status": "acknowledged",
+      "hinweis": "",
+      "spielort": "",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
       "kennung": "031I2POBPC000000VS5489BTVSRD0UH9",
       "datumISO": "2026-09-12",
       "wochentag": "Sa",
@@ -1299,8 +1314,8 @@
       "altersklasse": "F-Junioren",
       "heim": "SG Gebergrund Goppeln - Kinderfestival",
       "gast": "SV Chemie Dohna 1. U8/U9",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "o.E.",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Wittgensdorfer Str.",
       "wettbewerb": "Vereinsturnier",
@@ -1412,6 +1427,21 @@
       "spielart": "ME"
     },
     {
+      "kennung": "031IFTP6S0000000VS5489BTVSRD0UH9",
+      "datumISO": "2026-11-08",
+      "wochentag": "So",
+      "uhrzeit": "10:00",
+      "altersklasse": "C-Junioren",
+      "heim": "SV Pesterwitz 2.",
+      "gast": "SV Chemie Dohna",
+      "ergebnis": "13.11.2026 19:00",
+      "status": "acknowledged",
+      "hinweis": "",
+      "spielort": "",
+      "wettbewerb": "Kreisoberliga",
+      "spielart": "ME"
+    },
+    {
       "kennung": "031IGIVGGK000000VS5489BTVSRD0UH9",
       "datumISO": "2026-11-08",
       "wochentag": "So",
@@ -1439,36 +1469,6 @@
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
-      "spielart": "ME"
-    },
-    {
-      "kennung": "031IFTP6S0000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-11-13",
-      "wochentag": "Fr",
-      "uhrzeit": "19:00",
-      "altersklasse": "C-Junioren",
-      "heim": "SV Pesterwitz 2.",
-      "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "SpA Pesterwitz Kunstrasen",
-      "wettbewerb": "Kreisoberliga",
-      "spielart": "ME"
-    },
-    {
-      "kennung": "031IGIVHH8000000VS5489BTVSRD0UH9",
-      "datumISO": "2026-11-14",
-      "wochentag": "Sa",
-      "uhrzeit": "11:00",
-      "altersklasse": "A-Junioren",
-      "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
-      "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
-      "hinweis": "",
-      "spielort": "Sportplatz Bad Schandau",
-      "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
     {
