@@ -1,5 +1,5 @@
 {
-  "stand": "7.11.2026, 08:07:03 Uhr",
+  "stand": "7.11.2026, 17:07:14 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1359,8 +1359,8 @@
       "altersklasse": "Herren",
       "heim": "SG Schönfeld",
       "gast": "SV Chemie Dohna 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:4",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Schönfeld Kunstrasen",
       "wettbewerb": "2.Kreisliga (B)",
