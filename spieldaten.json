@@ -1,5 +1,5 @@
 {
-  "stand": "8.11.2026, 15:07:06 Uhr",
+  "stand": "8.11.2026, 16:07:05 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1434,8 +1434,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "SG Weixdorf",
-      "ergebnis": "1:0",
-      "status": "live",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
