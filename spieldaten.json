@@ -1,5 +1,5 @@
 {
-  "stand": "13.11.2026, 20:07:06 Uhr",
+  "stand": "13.11.2026, 22:07:08 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1449,8 +1449,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SV Pesterwitz 2.",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:0",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "",
       "wettbewerb": "Kreisoberliga",
