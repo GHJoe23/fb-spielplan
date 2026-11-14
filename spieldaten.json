@@ -1,5 +1,5 @@
 {
-  "stand": "14.11.2026, 08:07:03 Uhr",
+  "stand": "14.11.2026, 14:07:08 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1464,8 +1464,8 @@
       "altersklasse": "A-Junioren",
       "heim": "9NWM SpG Hohnsteiner SV/SG Traktor Reinhardtsdorf/ FSV 1924 Bad Schandau",
       "gast": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "19:3",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Sportplatz Bad Schandau",
       "wettbewerb": "Kreisoberliga",
@@ -1479,8 +1479,8 @@
       "altersklasse": "Herren",
       "heim": "SV Wesenitztal",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:0",
+      "status": "live",
       "hinweis": "",
       "spielort": "Am Quellenberg Wesenitztal",
       "wettbewerb": "Landesklasse",
