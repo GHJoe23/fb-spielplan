@@ -1,5 +1,5 @@
 {
-  "stand": "13.11.2026, 22:07:08 Uhr",
+  "stand": "14.11.2026, 08:00:30 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1299,8 +1299,8 @@
       "altersklasse": "F-Junioren",
       "heim": "SG Gebergrund Goppeln - Kinderfestival",
       "gast": "SV Chemie Dohna 1. U8/U9",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "o.E.",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Wittgensdorfer Str.",
       "wettbewerb": "Vereinsturnier",
@@ -1452,7 +1452,7 @@
       "ergebnis": "2:0",
       "status": "acknowledged",
       "hinweis": "",
-      "spielort": "",
+      "spielort": "SpA Pesterwitz Kunstrasen",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1467,7 +1467,7 @@
       "ergebnis": "-:-",
       "status": "scheduled",
       "hinweis": "",
-      "spielort": "",
+      "spielort": "Sportplatz Bad Schandau",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
