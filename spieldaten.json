@@ -1,5 +1,5 @@
 {
-  "stand": "14.11.2026, 14:07:08 Uhr",
+  "stand": "14.11.2026, 16:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1479,8 +1479,8 @@
       "altersklasse": "Herren",
       "heim": "SV Wesenitztal",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "0:0",
-      "status": "live",
+      "ergebnis": "-:-",
+      "status": "scheduled",
       "hinweis": "",
       "spielort": "Am Quellenberg Wesenitztal",
       "wettbewerb": "Landesklasse",
