@@ -1,5 +1,5 @@
 {
-  "stand": "20.11.2026, 20:07:03 Uhr",
+  "stand": "21.11.2026, 08:00:14 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1452,7 +1452,7 @@
       "ergebnis": "2:0",
       "status": "acknowledged",
       "hinweis": "",
-      "spielort": "",
+      "spielort": "SpA Pesterwitz Kunstrasen",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
@@ -1467,7 +1467,7 @@
       "ergebnis": "19:3",
       "status": "acknowledged",
       "hinweis": "",
-      "spielort": "",
+      "spielort": "Sportplatz Bad Schandau",
       "wettbewerb": "Kreisoberliga",
       "spielart": "ME"
     },
