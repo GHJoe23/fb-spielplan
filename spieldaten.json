@@ -1,5 +1,5 @@
 {
-  "stand": "21.11.2026, 13:07:07 Uhr",
+  "stand": "21.11.2026, 14:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1584,8 +1584,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna 2.",
       "gast": "SG Empor Possendorf 2.",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "5:3",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "2.Kreisliga (B)",
