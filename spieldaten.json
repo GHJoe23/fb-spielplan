@@ -1,5 +1,5 @@
 {
-  "stand": "21.11.2026, 08:00:14 Uhr",
+  "stand": "21.11.2026, 13:07:07 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1569,8 +1569,8 @@
       "altersklasse": "C-Junioren",
       "heim": "SV Chemie Dohna",
       "gast": "BSV 68 Sebnitz",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:4",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Kunstrasen",
       "wettbewerb": "Kreisoberliga",
