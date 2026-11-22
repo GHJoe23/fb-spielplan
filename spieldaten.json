@@ -1,5 +1,5 @@
 {
-  "stand": "22.11.2026, 08:00:14 Uhr",
+  "stand": "22.11.2026, 14:07:13 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1629,8 +1629,8 @@
       "altersklasse": "A-Junioren",
       "heim": "SpG LSV Gorknitz 61 / SV Chemie Dohna",
       "gast": "SV Glashütte",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:0",
+      "status": "live",
       "hinweis": "",
       "spielort": "Sportplatz Gorknitz",
       "wettbewerb": "Kreisoberliga",
@@ -1674,8 +1674,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "VfB Weißwasser 1909",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "0:0",
+      "status": "live",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
