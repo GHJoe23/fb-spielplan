@@ -1,5 +1,5 @@
 {
-  "stand": "22.11.2026, 15:07:05 Uhr",
+  "stand": "22.11.2026, 16:07:06 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1599,8 +1599,8 @@
       "altersklasse": "D-Junioren",
       "heim": "SG Schönfeld 2.",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "-:-",
-      "status": "scheduled",
+      "ergebnis": "2:1",
+      "status": "live",
       "hinweis": "",
       "spielort": "SpA Schönfeld Kunstrasen",
       "wettbewerb": "Kreisoberliga",
@@ -1674,8 +1674,8 @@
       "altersklasse": "Herren",
       "heim": "SV Chemie Dohna",
       "gast": "VfB Weißwasser 1909",
-      "ergebnis": "0:0",
-      "status": "live",
+      "ergebnis": "1:1",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "Stadion Dohna Rasenplatz",
       "wettbewerb": "Landesklasse",
