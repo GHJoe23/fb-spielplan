@@ -1,5 +1,5 @@
 {
-  "stand": "22.11.2026, 16:07:06 Uhr",
+  "stand": "22.11.2026, 17:07:04 Uhr",
   "spiele": [
     {
       "kennung": "02TNOBFJT0000000VS5489BTVV0LE4BT",
@@ -1599,8 +1599,8 @@
       "altersklasse": "D-Junioren",
       "heim": "SG Schönfeld 2.",
       "gast": "SV Chemie Dohna",
-      "ergebnis": "2:1",
-      "status": "live",
+      "ergebnis": "4:5",
+      "status": "acknowledged",
       "hinweis": "",
       "spielort": "SpA Schönfeld Kunstrasen",
       "wettbewerb": "Kreisoberliga",
